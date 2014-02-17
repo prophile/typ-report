@@ -1,0 +1,110 @@
+\documentclass[twoside,12pt,a4paper]{report}
+
+\newcommand{\pawel}{Pawe\l{} Soboci\'{n}ski}
+
+\newcommand{\mtitle}{Title Here}
+\newcommand{\mauthor}{Alistair Lynn}
+\newcommand{\msupervisor}{\pawel{}}
+\newcommand{\msexaminer}{Maria Polukarov}
+
+% With all text
+\newcommand{\notinplag}[1]{#1}
+
+% With text removed
+%\newcommand{\notinplag}[1]{}
+
+\title{\mtitle}
+\author{\mauthor}
+\date{\today}
+
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
+
+\usepackage{amsfonts}
+
+\usepackage{a4wide, textcomp}
+\usepackage[pdftex]{graphicx}
+
+\usepackage{todonotes}
+
+\usepackage{listingsutf8}
+
+\lstloadlanguages{Haskell}
+\lstnewenvironment{code}
+    {\lstset{}%
+      \csname lst@SetFirstLabel\endcsname}
+    {\csname lst@SaveFirstLabel\endcsname}
+    \lstset{
+      basicstyle=\small\ttfamily,
+      flexiblecolumns=false,
+      basewidth={0.5em,0.45em},
+      literate={+}{{$+$}}1 {/}{{$/$}}1 {*}{{$*$}}1 {=}{{$=$}}1
+               {>}{{$>$}}1 {<}{{$<$}}1 {\\}{{$\lambda$}}1
+               {\\\\}{{\char`\\\char`\\}}1
+               {->}{{$\rightarrow$}}2 {>=}{{$\geq$}}2 {<-}{{$\leftarrow$}}2
+               {<=}{{$\leq$}}2 {=>}{{$\Rightarrow$}}2 
+               {\ .}{{$\circ$}}2 {\ .\ }{{$\circ$}}2
+               {>>}{{>>}}2 {>>=}{{>>=}}2 {>=>}{{>=>}}2
+               {|}{{$\mid$}}1
+    }
+
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage[nottoc,numbib]{tocbibind}
+
+\usepackage{amsmath}
+
+\usepackage[hidelinks,
+            pdftex,
+            pdfauthor={\mauthor},
+            pdftitle={\mtitle}]{hyperref}
+
+\begin{document}
+\bibliographystyle{ieeetr}
+
+\notinplag{
+
+\begin{titlepage}
+\begin{center}
+\includegraphics[width=0.65\textwidth]{./soton_logo.eps}~\\[1cm]
+\textsc{\Large Electronics and Computer Science}\\[0.2cm]
+\textsc{\Large Faculty of Physical and Applied Sciences}\\[0.2cm]
+\textsc{\Large University of Southampton}\\[3.5cm]
+\textsc{\Large \mauthor}\\[1cm]
+\textsc{\large \today}\\[3cm]
+\textsc{\Large \mtitle}\\[3.5cm]
+\textsc{\large Project supervisor: \msupervisor}\\
+\textsc{\large Second examiner: \msexaminer}\\[1.5cm]
+\textsc{\large A project submitted for the award of BSc Computer Science}
+\end{center}
+\end{titlepage}
+
+\abstract{Abstract goes here.}
+
+\tableofcontents
+
+%\listoffigures
+%\listoftodos
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\chapter*{Acknowledgements}
+Acknowledgements go here.
+
+\newpage
+
+}
+
+\include{build/introduction}
+
+\notinplag{
+\appendix
+
+\bibliography{report}
+
+}
+
+\end{document}

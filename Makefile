@@ -1,4 +1,4 @@
-MARKDOWN_FORMAT=markdown+pipe_tables+tex_math_single_backslash+fenced_code_blocks+fenced_code_attributes+auto_identifiers+backtick_code_blocks+autolink_bare_uris+intraword_underscores+strikeout
+MARKDOWN_FORMAT=markdown+pipe_tables+tex_math_single_backslash+fenced_code_blocks+fenced_code_attributes+auto_identifiers+backtick_code_blocks+autolink_bare_uris+intraword_underscores+strikeout+footnotes
 
 include Makefile.deps
 

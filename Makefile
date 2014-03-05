@@ -1,3 +1,5 @@
+MARKDOWN_FORMAT=markdown+pipe_tables+tex_math_single_backslash+fenced_code_blocks+fenced_code_attributes+auto_identifiers+backtick_code_blocks+autolink_bare_uris+intraword_underscores+strikeout
+
 include Makefile.deps
 
 all: report.pdf
@@ -9,7 +11,7 @@ build:
 	mkdir -p build
 
 build/%.tex: sections/%.md build
-	pandoc -f markdown_github+raw_tex -t latex --listings --chapters $< -o $@
+	pandoc -f $(MARKDOWN_FORMAT) -t latex --listings --chapters $< -o $@
 
 report.pdf: report.tex report.bib
 	pdflatex report.tex

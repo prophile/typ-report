@@ -21,17 +21,13 @@ of this report, there is a veritable smorgasbord of different
 implementations. Based on the original types as described by Elliott
 and Hudak\cite{frAnimation} and later revisited by Elliott in his
 paper "Push-Pull Functional Reactive Programming"\cite{pushPull},
-one finds Elliott's own `reactive` library, as well Apfelmaus's
-`reactive-banana` and Blackheath's `sodium`.
+one finds Elliott's own `reactive`\cite{hackage:reactive} library,
+as well Apfelmus's `reactive-banana`\cite{hackage:reactive-banana}
+and Blackheath's `sodium`\cite{hackage:sodium}.
 
 Following a slightly different route, there are a number of libraries
 using Arrowised FRP (AFRP)\cite{afrp}\cite{arrowsRobots}, which is
-heavily based on Hughes arrows.  `netwire` and `Yampa` are probably
-the best known of these libraries.
-
-Following a slightly different route, heavily making use of Hughes
-Arrows, as described in the paper "Functional Reactive Programming,
-Continued"\cite{afrp} -- which I will refer to as "AFRP" -- one
-finds the systems `netwire` and the rather more full-featured
-`Yampa`.
+heavily based on Hughes arrows.  `netwire`\cite{hackage:netwire}
+and `Yampa`\cite{hackage:yampa} are probably the best known of these
+libraries.
 

@@ -31,7 +31,8 @@ value of the other output, it evaluates `True && True` as `True` before the
 update on the right-hand input is received.
 
 This is somewhat unfortunate. It is similar, in many ways, to an analogous
-problem arising from propagation delays in digital logic circuits.
+problem arising from propagation delays in digital logic
+circuits\cite{digitalHazards}.
 
 A critical observation here is that glitches arise as part of a larger
 phenomenon which we will call "stuttering": informally, the case where a single
@@ -43,13 +44,13 @@ of stuttering prevents, by definition, the emergence of glitches.
 One possible solution here is to have each node "wait" on each of its inputs in
 turn, only yielding a value each time it has received an update from every
 input. This removes the stuttering entirely and therefore glitches. This makes
-the network equivalent to a Kahn process network. However, a problem arises on a
-network which has multiple inputs overall: only after each input to the network
-has arrived does a change in the output occur. As an example, consider a network
-which takes inputs from two sensors and sums them. A detection event on one
-sensor would not be enough on its own to trigger a change in the network's
-output, making the state of the output inconsistent with the state of the
-inputs.
+the network equivalent to a Kahn process network\cite{kahn}. However, a problem
+arises on a network which has multiple inputs overall: only after each input to
+the network has arrived does a change in the output occur. As an example,
+consider a network which takes inputs from two sensors and sums them. A
+detection event on one sensor would not be enough on its own to trigger a change
+in the network's output, making the state of the output inconsistent with the
+state of the inputs.
 
 One can also imagine a system of substructural types -- probably either linear
 or affine -- which prevent a single input to the network being combined with

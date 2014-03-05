@@ -33,5 +33,5 @@ Notes: Patai Gergely, no signals
 Reactive
 --------
 
-Notes: Conal Elliott
+Notes: Conal Elliott, essentially as stated in push-pull FRP paper
 

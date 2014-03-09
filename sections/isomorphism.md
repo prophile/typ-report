@@ -1,8 +1,9 @@
 The State/Automaton Isomorphism
 -------------------------------
 
-The automaton arrow, which corresponds to a mealy machine, has an isomorphism to
-the state arrow with an existential type for the type of the state. The types
+The automaton arrow\cite{automatonArrows}, which corresponds to a
+Mealy machine\cite{elliottMealy}, has an isomorphism to the state
+arrow with an existential type for the type of the state. The types
 are given in Figure \ref{fig:isoTypes}.
 
 \begin{figure}
@@ -17,17 +18,19 @@ data ExistentialState a b c = forall s. ExistentialState (a (s, b) (s, c)) s
 \label{fig:isoTypes}
 \end{figure}
 
-In essence, the automaton arrow and the state arrow do the same job: they permit
-state to be kept between steps in a computation. Whilst the ordinary state arrow
-makes the type of the state explicit, the existential state arrow has the state
-kept implicit, hidden by existential quantification, and the initial state is
-part of values of that type.
+In essence, the automaton arrow and the state arrow do the same
+job: they permit state to be kept between steps in a computation.
+Whilst the ordinary state arrow makes the type of the state explicit,
+the existential state arrow has the state kept implicit, hidden by
+existential quantification\cite{existentialTypes}, and the initial
+state is part of values of that type.
 
-The category formed by the existential state arrow type is slightly different,
-then, to the category formed by ordinary state arrows. The exact composition
-operator and identity are given in Figure \ref{fig:estateCategory}. This uses
-Paterson's arrow notation for convenience. Proof of the category laws are given
-in Figure \ref{fig:estateCategoryLaws}.
+The category formed by the existential state arrow type is slightly
+different to the category formed by ordinary state arrows. The exact
+composition operator and identity are given in Figure
+\ref{fig:estateCategory}. This uses Paterson's arrow
+notation\cite{arrowNotation} for convenience. Proof of the category
+laws are given in Figure \ref{fig:estateCategoryLaws}.
 
 \begin{figure}
 

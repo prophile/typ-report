@@ -42,7 +42,7 @@ of these outputs may, in certain circumstances, be erroneous.
 
 Using Haskell, I will show how using a FRP formulation that, in contrast to
 some, captures both inputs and outputs can be shown to produce exactly one
-output for every input with enforcement at the type level.\cite{testSource}
+output for every input with enforcement at the type level.
 
 \begin{equation}
 \textbf{React}(A,B) = (B \times \textbf{React}(A, B))^A

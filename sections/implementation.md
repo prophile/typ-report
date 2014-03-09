@@ -1,6 +1,8 @@
 Implementation
 ==============
 
+\label{chap:impl}
+
 \todo{Organise this section}
 
 Most of the operations of the Wire type are the operations of the basic arrow

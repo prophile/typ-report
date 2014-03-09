@@ -1,2 +1,4 @@
 Proofs
 ======
+
+\label{chap:proofs}

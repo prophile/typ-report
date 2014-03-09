@@ -1,6 +1,8 @@
 Stuttering and Glitches
 =======================
 
+\label{chap:glitches}
+
 Simple FRP systems suffer from a problem called glitches. Consider, under the
 usual Applicative interpretation, the example given in Figure
 \ref{fig:glitchExample}.

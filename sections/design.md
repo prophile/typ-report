@@ -13,6 +13,8 @@ measure\cite{applicatives}\cite{pushPull}.
 The State-Automaton Isomorphism
 -------------------------------
 
+\label{sec:stateAuto}
+
 There is an isomorphism between Paterson's automaton
 arrows\cite{automatonArrows} and existential\cite{existentialTypes}
 state arrows\cite{arrowNotation}, which are shown in

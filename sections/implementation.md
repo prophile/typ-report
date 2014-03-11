@@ -54,30 +54,39 @@ Practical Concerns
 
 From a practical point of view, the development -- both of the main
 implementation itself as well as the support libraries discussed above -- was
-done using a number of tools.
+done using a number of tools.\todo{Fill in details on all of these}
 
-\todo{Flesh all of these out}
+### git
 
-Tools:
+`git` is a distributed version control system\cite{ws:git}.
 
-* git
-* github
-* Travis
-* QuickCheck
-* cabal
-* hackage
+### GitHub
 
-QuickCheck
-----------
+`GitHub` is a hosting service for `git` repositories\cite{ws:github}.
+
+### QuickCheck
 
 QuickCheck is a property-based testing tool for Haskell\cite{quickcheck}. I used
 it in the `idempotent` library to test the idempotence properties on each of the
 instances, as well as the monoid properties of the `Min` and `Max` extrema
 newtypes.
 
-Travis CI
----------
+### Travis CI
 
 Travis is a continous integration tool\cite{ws:travis}. It is tightly coupled to
 GitHub. I used it for automated builds and tests for all parts of the project.
+
+### Cabal
+
+Cabal is a system for building and packaging Haskell libraries and
+programs\cite{ws:cabal}.
+
+### Haddock
+
+Haddock is a documentation generation system for Haskell\cite{haddock},
+analogous to Doxygen\cite{ws:doxygen} or Javadoc\cite{ws:javadoc}.
+
+### Hackage
+
+Hackage is a Haskell-specific package database\cite{ws:hackage}.
 

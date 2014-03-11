@@ -87,9 +87,9 @@ of outputs for each input. This phenomenon is known as the Brock-Ackerman
 anomaly\cite{brockAckerman}.
 
 The monad instance, as mentioned, derives from a monoid on `Future`:
-a monoid which represents the "first" event of a pair of events. A future is in
-essence an occurrence of an event, that is, the product of the data it carries
-with time.
+a monoid which represents the "first" event of a pair of events. A
+future is in essence an occurrence of an event, that is, the product
+of the data it carries with time.
 
 There are two things to immediately note about the monoid. Firstly,
 that the monoid must be *idempotent*. Were one to ask which came
@@ -98,3 +98,18 @@ other than that of the very occurrence. Secondly, neither of the
 arguments to the monoid operation should have any bias towards it,
 which would make the monoid unfair: that is to say, the monoid
 should be *commutative*.
+
+Behaviours
+----------
+
+Elliott describes a type `Behaviour a` which has the semantics of
+a function from times to `a`\cite{pushPull}. It is not uncommon for
+times to be taken as real numbers. If we restrict times to the
+natural numbers to model discrete points of time rather than
+continuous time, however, `Behaviour a` (being represented by the
+natural numbers) is then isomorphic to an infinite stream of
+`a`\cite{streamRep}. Restriction to the discrete case, however,
+removes most of the motivation for the "pull" part of Elliott's
+"push-pull" model, so these `Behaviour`s are no more interesting
+than `Reactive`s.
+

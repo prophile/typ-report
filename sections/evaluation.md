@@ -15,7 +15,9 @@ m))`. Given the isomorphism between `Automaton` and the `Wire` type I
 implemented in Chapter\ \ref{chap:impl} (described in Section\ 
 \ref{sec:stateAuto}), my implementation can be seen as a generalisation of
 `netwire` since `netwire`'s wires can be constructed with arrow transformers and
-using the Kleisli arrow of the underlying monad as a basis.
+using the Kleisli arrow of the underlying monad parameter `m` as a basis.
+
+The `s` parameter is the type of times.
 
 \begin{figure}
 \begin{lstlisting}

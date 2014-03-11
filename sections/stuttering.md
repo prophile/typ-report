@@ -54,11 +54,12 @@ detection event on one sensor would not be enough on its own to trigger a change
 in the network's output, making the state of the output inconsistent with the
 state of the inputs.
 
-One can also imagine a system of substructural types -- probably either linear
-or affine -- which prevent a single input to the network being combined with
-itself. While this is appealing it is also difficult to implement in languages
-which lack linear types in the first place and such combinations can be useful
-in practice. Still, it is possible that further research might be done on the
-use of linear or affine types in this circumstances, perhaps in a language with
-language-level support for linear types such as `Clean`.
+One can also imagine a system of substructural types\cite{substructural} --
+probably either linear or affine -- which prevent a single input to the network
+being combined with itself. While this is appealing it is also difficult to
+implement in languages which lack linear types in the first place and such
+combinations can be useful in practice. Still, it is possible that further
+research might be done on the use of linear or affine types in this
+circumstances, perhaps in a language with language-level support for linear
+types such as `Clean`\cite{cleanIO}.
 

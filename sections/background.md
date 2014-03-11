@@ -92,8 +92,7 @@ essence an occurrence of an event, that is, the product of the data it carries
 with time.
 
 There are two things to immediately note about the monoid. Firstly,
-that the first occurrence from an occurrence and itself is that
-occurrence; that is to say the monoid is *idempotent*. Secondly,
-neither of the arguments to the monoid operation should have any bias towards
-it, which would make the monoid unfair: that is to say, the monoid
-should be *commutative*.
+that the monoid is *idempotent*. Secondly, neither of the arguments
+to the monoid operation should have any bias towards it, which would
+make the monoid unfair: that is to say, the monoid should be
+*commutative*.

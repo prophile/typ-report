@@ -58,11 +58,22 @@ done using a number of tools.\todo{Fill in details on all of these}
 
 ### git
 
-`git` is a distributed version control system\cite{ws:git}.
+`git` is a distributed version control system\cite{ws:git}. It was written by Linus Torvalds to replace the BitKeeper source control system
+for Linux\cite{gitTorvalds}, and is now used in a number of large projects and
+by a number of large organisations\cite{ws:git}, including the University of
+Southampton\cite{ws:sotonGit}.
+
+I opted to use it as a matter of personal familiarity over other distributed
+version control systems, although above centralised version control systems due
+to a need to work in locations without access to the Internet.
 
 ### GitHub
 
-`GitHub` is a hosting service for `git` repositories\cite{ws:github}.
+`GitHub` is a hosting service for `git` repositories\cite{ws:github}. As a large
+company\cite{githubLargeBlog}\cite{githubLargeWSJ}, a certain degree of trust is
+established for their not collapsing and losing data. For this reason, I opted
+for them for hosting of the `git` repositories I used, although naturally I kept
+mirrors within ECS.
 
 ### QuickCheck
 

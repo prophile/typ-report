@@ -49,3 +49,35 @@ to the `CoYoneda`\cite{hackage:kan-extensions} type as it applies
 to Functors, in that it folds mappings into single functions, albeit
 mappings via composition and `arr` rather than `fmap`.
 
+Practical Concerns
+------------------
+
+From a practical point of view, the development -- both of the main
+implementation itself as well as the support libraries discussed above -- was
+done using a number of tools.
+
+\todo{Flesh all of these out}
+
+Tools:
+
+* git
+* github
+* Travis
+* QuickCheck
+* cabal
+* hackage
+
+QuickCheck
+----------
+
+QuickCheck is a property-based testing tool for Haskell\cite{quickcheck}. I used
+it in the `idempotent` library to test the idempotence properties on each of the
+instances, as well as the monoid properties of the `Min` and `Max` extrema
+newtypes.
+
+Travis CI
+---------
+
+Travis is a continous integration tool\cite{ws:travis}. It is tightly coupled to
+GitHub. I used it for automated builds and tests for all parts of the project.
+

@@ -21,7 +21,7 @@ libraries[^1].
 
 As a result, I wrote the typeclass as well as its common instances and factored
 them out to a separate library, which then was published on Haskell's package
-index, Hackage\cite{hackage:idempotent}.
+index, Hackage\cite{hackage:idempotent} (see \ref{sub:hackage}).
 
 Improving Arrows
 ----------------
@@ -85,19 +85,29 @@ newtypes.
 ### Travis CI
 
 Travis is a continous integration tool\cite{ws:travis}. It is tightly coupled to
-GitHub. I used it for automated builds and tests for all parts of the project.
+GitHub\cite{ws:travisDocs}. I used it for automated builds and tests for all
+parts of the project.
 
 ### Cabal
 
 Cabal is a system for building and packaging Haskell libraries and
-programs\cite{ws:cabal}.
+programs\cite{ws:cabal}. The various components I implemented each include the
+necessary metadata[^meta] to be built and installed using Cabal.
+
+[^meta]: The key files being `Setup.hs` and the main `.cabal` file which
+contains the package metadata and build instructions\cite{ws:cabalUserGuide}.
 
 ### Haddock
 
 Haddock is a documentation generation system for Haskell\cite{haddock},
-analogous to Doxygen\cite{ws:doxygen} or Javadoc\cite{ws:javadoc}.
+analogous to Doxygen\cite{ws:doxygen} or Javadoc\cite{ws:javadoc}. Both the
+`idempotent` and `arrow-improve` packages have Haddock documentation for all
+exported modules, declarations and values.
 
 ### Hackage
 
-Hackage is a Haskell-specific package database\cite{ws:hackage}.
+\label{sub:hackage}
+
+Hackage is a Haskell-specific package database\cite{ws:hackage}. It is analogous
+to `npm`\cite{ws:npm} or PyPI\cite{ws:pypi}.
 

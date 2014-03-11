@@ -32,7 +32,7 @@ update taking its first input from `False` to `True` -- and using the previous
 value of the other output, it evaluates `True && True` as `True` before the
 update on the right-hand input is received.
 
-This is somewhat unfortunate. It is similar, in many ways, to an analogous
+This is somewhat unfortunate[^unf]. It is similar, in many ways, to an analogous
 problem arising from propagation delays in digital logic
 circuits\cite{digitalHazards}.
 
@@ -64,4 +64,8 @@ possible that further research might be done on the use of linear
 or affine types in this circumstances, perhaps in a language with
 language-level support for linear types such as `Clean`\cite{cleanIO}
 and Rust\cite{lang:rust}.
+
+[^unf]: To use a standard Haskell safety example\cite{beautiful}, consider the
+output of this network being whether to fire the missiles, causing serious
+international side effects\cite{hackage:acme-missiles}.
 

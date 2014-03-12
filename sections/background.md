@@ -37,7 +37,48 @@ Hughes Arrows
 
 In 2000, Hughes introduced Arrows\cite{arrows}. Arrows are a generalised type
 for computation, more powerful than applicative functors but less powerful than
-monads\cite{applicatives}.
+monads\cite{applicatives}. A basic arrow, implementing the `Arrow` typeclass,
+can be considered a cartesian monoidal category with a functor from
+`Hask`[^mon]. The `Arrow` typeclass as originally given by Hughes is given in
+Figure\ \ref{fig:hughesTypeclass}, and the current typeclass hierarchy
+implemented by Paterson is given in Figure\ \ref{fig:patersonTypeclass}.
+
+[^mon]: `arr` gives the functor from `Hask`, `>>>` and `arr id` are the
+composition and identities as a category, and `first` permits products.
+
+\begin{figure}
+\begin{lstlisting}
+class Arrow a where
+  (>>>) :: a b c -> a c d -> a b d
+  first :: a b c -> a (b, d) (c, d)
+  arr :: (b -> c) -> a b c
+\end{lstlisting}
+
+\caption{The \texttt{Arrow} typeclass, \`{a} la Hughes.}
+\label{fig:hughesTypeclass}
+\end{figure}
+
+\begin{figure}
+\begin{lstlisting}
+class Category a where
+  id :: a b b
+  (.) :: a c d -> a b c -> a b d
+
+class (Category a) => Arrow a where
+  arr :: (b -> c) -> a b c
+  first :: a b c -> a (b, d) (c, d)
+
+(>>>) = flip (.)
+\end{lstlisting}
+
+\caption{The \texttt{Arrow} and \texttt{Category} typeclasses, \`{a} la
+Paterson.}
+\label{fig:patersonTypeclass}
+\end{figure}
+
+`Hask` itself is an `Arrow`, with `arr` as the identity; there is also the
+`Kleisli` data type for constructing the Kleisli category from a monad, which is
+also necessarily an `Arrow`\cite{kleisli}.
 
 "Traditional" FRP
 -----------------

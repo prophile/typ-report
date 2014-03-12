@@ -1,0 +1,16 @@
+language: C
+install:
+- sudo apt-get install pandoc
+- sudo apt-get install texlive-latex-base
+script:
+- make
+after_success:
+- openssl aes-256-cbc -d -in deploy_key.aes -out deploy_key -k $AES_KEY
+- chmod 600 deploy_key
+- scp -o StrictHostKeyChecking=no -i deploy_key report.pdf $DEPLOY_USERNAME@$DEPLOY_HOSTNAME:$DEPLOY_PATH/report.pdf
+env:
+  global:
+  - secure: Q2o70KxMjsZxlbUFLd4Qp0Z+cG9laxQRqWo6wODYhtvrTlbEHYtQuYjkRAyzm6t42d8b3qhCyhn+0TVPxRgMSeK1rV28ZOzAOsWVvIJJtfcUmmMgH4bh11s/w76M6IsUFE+WfXUVY69D1t7Mx6RpavCgO33L5JhlX1XyZdc+v10=
+  - secure: IiFn/cQ4FKL3XjoueLZy45qCuZULZuJGCGnsYg7JzHBG+0mpvpDjo6hsA0w6+Fna5XyhMRSXEjl3BZTB2Q372NtjOo5jm6zpnqTylT6bT10c9OR482HfupH8tyU+orGRPqtT5Z/72JABREVRihrP/i+HQfwM2seXQjGL6kE4ofI=
+  - secure: XlDrXQPZjvJZSWzGFP9YvjumRu0z+qAvddPQpQSg2z5liA+soFpY20VrsJyykiw1vW8SLDVkD+dmJtBDclQM/yL5/t45ShadCEFKaR9ZPgXiNjx3A7+LVGtxTY3nGlG5JMG8KQadPdWIu7btcjPIgTjPGQe0oj4EcMiWknD8+Z8=
+  - secure: RMFDxIf1FnX3sSfHg9Jp8ctso/yDD28IKKm7sAP0dtVUmZC+lFCg/3FIz0k2qTNtW9pLGQm4hL60VF1P0KCZP6OO0KqUQJtGyPfgpGrIgsG+1OY/XtlhV3O84VHx5hsYddAAx6C1gwrvd24wgjy5Iw1+9xWaKFrUEo1TTF92WPU=

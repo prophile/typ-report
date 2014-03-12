@@ -35,7 +35,9 @@ probably the best known of these libraries.
 Hughes Arrows
 -------------
 
-In 2000, Hughes introduced Hughes Arrows\cite{arrows}. 
+In 2000, Hughes introduced Arrows\cite{arrows}. Arrows are a generalised type
+for computation, more powerful than applicative functors but less powerful than
+monads\cite{applicatives}.
 
 "Traditional" FRP
 -----------------

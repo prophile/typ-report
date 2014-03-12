@@ -5,7 +5,7 @@ include Makefile.deps
 all: report.pdf
 
 Makefile.deps: report.tex
-	sed -nE 's_\\include{build/(.*)}_report.pdf: build/\1.tex_gp' <report.tex >$@
+	python genmake.py <$< >$@
 
 build:
 	mkdir -p build

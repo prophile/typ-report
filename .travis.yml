@@ -1,4 +1,4 @@
-language: C
+language: Haskell
 install:
 - cabal install pandoc
 - sudo apt-get install texlive-latex-base

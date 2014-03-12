@@ -1,6 +1,6 @@
 language: C
 install:
-- sudo apt-get install pandoc
+- cabal install pandoc
 - sudo apt-get install texlive-latex-base
 script:
 - make

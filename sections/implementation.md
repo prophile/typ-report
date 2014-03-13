@@ -69,6 +69,8 @@ to a need to work in locations without access to the Internet.
 
 ### GitHub
 
+\label{sub:github}
+
 `GitHub` is a hosting service for `git` repositories\cite{ws:github}. As a large
 company\cite{githubLargeBlog}\cite{githubLargeWSJ}, a certain degree of trust is
 established for their not collapsing and losing data. For this reason, I opted

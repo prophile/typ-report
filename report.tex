@@ -29,7 +29,7 @@
 \usepackage{a4wide, textcomp}
 \usepackage[pdftex]{graphicx}
 
-\usepackage{todonotes}
+\usepackage[disable]{todonotes}
 
 \usepackage{listingsutf8}
 
@@ -75,6 +75,7 @@
 
 \begin{document}
 \bibliographystyle{ieeetr}
+\pagenumbering{roman}
 
 \notinplag{
 
@@ -115,6 +116,7 @@ completed.
 
 }
 
+\pagenumbering{arabic}
 \include{build/introduction}
 \include{build/background}
 \include{build/stuttering}

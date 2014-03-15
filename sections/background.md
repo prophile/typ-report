@@ -87,6 +87,15 @@ recursion to arrows, and `ArrowChoice` and `ArrowApply` which respectively give
 arrows with coproducts and exponentials. Instances of the `ArrowApply` typeclass
 are equivalent to monads.
 
+The use of arrows in Haskell is simplified by arrow notation. Arrow notation is
+a language extension with syntactic sugar for arrows\cite{arrowNotation},
+simplifying programming with arrows in much the same way that
+`do`-notation\cite{lang:haskell} simplifies programming with monads.
+
+Arrows have been used for dataflow languages\cite{arrowNotation}, XML
+processing\cite{hxt}, annotating IO with static information\cite{applicatives},
+and functional reactive programming\cite{afrp}.
+
 "Traditional" FRP
 -----------------
 

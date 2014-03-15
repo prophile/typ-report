@@ -80,6 +80,13 @@ Paterson.}
 `Kleisli` data type for constructing the Kleisli category from a monad, which is
 also necessarily an `Arrow`\cite{kleisli}.
 
+Hughes arrows are further generalised with five typeclasses which have `Arrow`
+as a superclass: `ArrowZero` and `ArrowPlus` which between them add a monoid
+structure to Arrows akin to `MonadPlus`, `ArrowLoop` which adds a form of
+recursion to arrows, and `ArrowChoice` and `ArrowApply` which respectively give
+arrows with coproducts and exponentials. Instances of the `ArrowApply` typeclass
+are equivalent to monads.
+
 "Traditional" FRP
 -----------------
 

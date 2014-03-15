@@ -130,9 +130,9 @@ instance for Functor\cite{parametricFunctor}.
 
 Secondly, if `Future` is representable[^rep] (represented by some
 type `i`) then `Signal` is a Mealy machine\cite{elliottMealy} and
-`Reactive` is a Moore machine\todo{Cite the Free package which may
-be the best source}, both of which have their values of `a` as the
-output alphabet and values of `i` as the input alphabet.
+`Reactive` is a Moore machine\cite{hackage:free}, both of which
+have their values of `a` as the output alphabet and values of `i`
+as the input alphabet.
 
 [^rep]: Isomorphic to `(->) r` for some `r`. The type `r` is said to *represent*
 the functor.

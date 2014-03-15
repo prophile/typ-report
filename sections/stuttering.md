@@ -34,7 +34,8 @@ update on the right-hand input is received.
 
 This is somewhat unfortunate[^unf]. It is similar, in many ways, to an analogous
 problem arising from propagation delays in digital logic
-circuits\cite{digitalHazards}.
+circuits\cite{digitalHazards}. In the field of computer science, it is known as
+the Brock-Ackerman anomaly\cite{brockAckerman}.
 
 A critical observation here is that glitches arise as part of a larger
 phenomenon which we will call "stuttering": informally, the case where a single

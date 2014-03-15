@@ -143,7 +143,8 @@ mechanism\cite{applicatives}\cite{denotationalDesign}, and therein
 lies the issue with glitches and traditional reactives: the monad
 instance from the monoid on Future inevitably leads to a cascade
 of outputs for each input. This phenomenon is known as the Brock-Ackerman
-anomaly\cite{brockAckerman}.
+anomaly\cite{brockAckerman}, and will be covered more in Chapter\ 
+\ref{chap:glitches}.
 
 The monad instance, as mentioned, derives from a monoid on `Future`:
 a monoid which represents the "first" event of a pair of events. A

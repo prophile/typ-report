@@ -3,11 +3,27 @@ Implementation
 
 \label{chap:impl}
 
-\todo{Organise this section}
-
 Most of the operations of the Wire type are the operations of the basic arrow
 typeclasses. Wire is also an arrow transformer and an instance of the
 `ArrowCircuit` typeclass\cite{automatonArrows}.
+
+Beyond its typeclasses, given in Figure\ \ref{fig:wireTypeclasses}, `Wire` also
+admits two other operations: `stepWire` and `accumulate`.
+
+\begin{figure}
+
+\begin{itemize}
+ \item `Category` if the underlying arrow has an `Arrow` instance
+ \item `Arrow` if the underlying arrow has an `Arrow` instance
+ \item `ArrowChoice` if the underlying arrow has an `ArrowChoice` instance
+ \item `ArrowZero` if the underlying arrow has an `ArrowZero` instance
+ \item `ArrowPlus` if the underlying arrow has an `ArrowPlus` instance
+ \item `ArrowTransformer` if the underlying arrow has an `Arrow` instance
+\end{itemize}
+
+\caption{The typeclasses of the \texttt{Wire} type.}
+\label{fig:wireTypeclasses}
+\end{figure}
 
 Idempotent
 ----------

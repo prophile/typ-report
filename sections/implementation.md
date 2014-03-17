@@ -10,7 +10,7 @@ typeclasses. Wire is also an arrow transformer and an instance of the
 Beyond its typeclasses, given in Figure\ \ref{fig:wireTypeclasses}, `Wire` also
 admits two other operations: `stepWire` and `accumulate`.
 
-\begin{figure}
+\begin{figure}[h]
 
 \begin{itemize}
  \item `Category` if the underlying arrow has an `Arrow` instance

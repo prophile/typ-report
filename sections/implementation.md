@@ -54,7 +54,7 @@ Practical Concerns
 
 From a practical point of view, the development -- both of the main
 implementation itself as well as the support libraries discussed above -- was
-done using a number of tools.\todo{Fill in details on all of these}
+done using a number of tools.
 
 ### git
 

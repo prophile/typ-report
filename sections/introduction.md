@@ -8,7 +8,7 @@ quite closely, making them unwieldy for interactive use.
 
 Reactive programming is a programming paradigm in which dependent variables
 change value relative to their dependencies. To give a concrete example,
-consider the code in Figure \ref{fig:rpBasicExample}.
+consider the code in Figure\ \ref{fig:rpBasicExample}.
 
 \begin{figure}
 
@@ -40,12 +40,8 @@ Many current functional reactive programming implementations suffer from a
 problem of stuttering, in which a single input can cause multiple outputs. Some
 of these outputs may, in certain circumstances, be erroneous.
 
-Using Haskell, I will show how using a FRP formulation that, in contrast to
-some, captures both inputs and outputs can be shown to produce exactly one
-output for every input with enforcement at the type level.
-
-\begin{equation}
-\textbf{React}(A,B) = (B \times \textbf{React}(A, B))^A
-\label{eqn:frp}
-\end{equation}
+Using Haskell, I will show how using FRP formulations that, in contrast to
+some, capture both inputs and outputs can be shown to produce exactly one
+output for every input, enforced at the type level. This prevents stuttering and
+thus the glitches which this report seeks to oust.
 

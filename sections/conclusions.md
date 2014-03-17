@@ -14,3 +14,9 @@ I gave a full implementation of this model using Hughes arrows in Chapter\
 \ref{chap:impl}. I then evaluated it against existing systems in Chapter\ 
 \ref{chap:eval}.
 
+In the forthcoming final report on this project I hope to expand much
+further upon my actual implementation, including proofs for all laws
+required by the various typeclasses given through equational reasoning. I
+do undertake to include in that document all the details which time and
+word limits have forced me to exclude from this interim report.
+

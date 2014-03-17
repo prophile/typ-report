@@ -7,6 +7,14 @@ for my own implementation.  Indeed, credence has been lent to the
 arrow-based approach by both Hudak\cite{arrowsRobots} and
 Elliott\cite{elliottMealy}.
 
+The standard model for arrow-based FRP is to use a stack of arrow
+transformers, with either `Hask` at its base or a Kleisli arrow of
+some monad, and with the Automaton transformer\cite{automatonArrows}
+somewhere in the stack. `netwire` has its core type as given
+in Figure\ \ref{fig:netwireType} which follows this model,
+and Yampa uses a very similar mechanism for its `SF` and `SF'`
+types\cite{hackage:netwire}\cite{hackage:yampa}.
+
 [^1]: Traditional FRP uses applicative functors in no small
 measure\cite{applicatives}\cite{pushPull}.
 

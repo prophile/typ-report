@@ -11,7 +11,8 @@ input to an FRP network causes one and only one output, thus avoiding stuttering
 and -- by extension -- glitches.
 
 I gave a full implementation of this model using Hughes arrows in Chapter\ 
-\ref{chap:impl}. I then evaluated it against existing systems in Chapter\ 
+\ref{chap:impl}, including proofs for all the relevant laws in Chapter\ 
+\ref{chap:proofs}. I then evaluated it against existing systems in Chapter\ 
 \ref{chap:eval}.
 
 In the forthcoming final report on this project I hope to expand much

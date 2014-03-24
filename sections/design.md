@@ -61,7 +61,8 @@ runtime -- in particular, the memory does not grow for every non-stateful
 computation in the network.
 
 This representation is given in Figure\ \ref{fig:existentialStateOpt}, using
-GADT syntax\cite{gadts}. This forms the foundation of my implementation.
+GADT syntax\cite{gadts}. This forms the foundation of my implementation, with
+the actual proofs for the various instances given in Chapter\ \ref{chap:proofs}.
 
 \begin{figure}
 \begin{lstlisting}

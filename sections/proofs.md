@@ -269,6 +269,26 @@ WState (arr (first fst . exchange) . first f . arr exchange) fs = WState f fs . 
 \begin{figure}
 \begin{lstlisting}
 first f >>> arr (id *** g) = arr (id *** g) >>> first f
+-- definition of (>>>)
+arr (id *** g) . first f = first f . arr (id *** g)
+-- expansion of f
+arr (id *** g) . first (WState f fs) = first (WState f fs) . arr (id *** g)
+-- definition of arr
+(WLift . arr) (id *** g) . first (WState f fs) = first (WState f fs) . (WLift . arr) (id *** g)
+-- expansion of composition
+WLift (arr (id *** g)) . first (WState f fs) = first (WState f fs) . WLift (arr (id *** g))
+-- definition of first
+WLift (arr (id *** g)) . WState (exchange ^>> first f >>^ exchange) s = WState (exchange ^>> first f >>^ exchange) s . WLift (arr (id *** g))
+-- definition of (.)
+WState (first (arr (id *** g)) . (exchange ^>> first f >>^ exchange)) s = WState ((exchange ^>> first f >>^ exchange) . first (arr (id *** g))) s
+-- splitting WState
+first (arr (id *** g)) . (exchange ^>> first f >>^ exchange) = (exchange ^>> first f >>^ exchange) . first (arr (id *** g))
+-- third arrow law in underlying arrow
+arr (first (id *** g)) . (exchange ^>> first f >>^ exchange) = (exchange ^>> first f >>^ exchange) . arr (first (id *** g))
+-- definitions of (^>>) and (>>^)
+arr (first (id *** g)) . arr exchange . first f . arr exchange = arr exchange . first f . arr exchange . arr (first (id *** g))
+-- second arrow law in underlying arrow
+arr (first (id *** g) . exchange) . first f . arr exchange = arr exchange . first f . arr (exchange . first (id *** g))
 \end{lstlisting}
 
 \caption{The sixth arrow law.}

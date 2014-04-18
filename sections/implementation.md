@@ -29,15 +29,10 @@ Idempotent
 ----------
 
 For consistency, accumulation needs not just monoids on values, but
-idempotent monoids[^id]. There is no typeclass for idempotent monoids anywhere
-within Haskell's standard libraries[^1].
+idempotent monoids. There is no typeclass for idempotent monoids
+anywhere within Haskell's standard libraries[^1].
 
 [^1]: That is to say, libraries included with GHC or the Haskell platform.
-
-[^id]: Constraints on time forbid my including a full explanation of
-this within this interim report, but in short this is needed to enforce
-the property that if the inputs to a network do not change, its outputs
-also do not change.
 
 As a result, I wrote the typeclass as well as its common instances and factored
 them out to a separate library, which then was published on Haskell's package

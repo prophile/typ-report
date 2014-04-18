@@ -13,7 +13,10 @@ build:
 build/%.tex: sections/%.md build
 	pandoc -f $(MARKDOWN_FORMAT) -t latex --listings --chapters $< -o $@
 
-report.pdf: report.tex report.bib
+annsrc/Wire.tex: annsrc/Wire.lhs
+	pandoc -f $(MARKDOWN_FORMAT)+lhs -t latex --listings --chapters $< -o $@
+
+report.pdf: report.tex report.bib annsrc/Wire.tex
 	pdflatex report.tex
 	bibtex report
 	pdflatex report.tex

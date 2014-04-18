@@ -25,8 +25,12 @@ admits two other operations: `stepWire` and `accumulate`.
 \label{fig:wireTypeclasses}
 \end{figure}
 
+\input{annsrc/Wire.tex}
+
 Idempotent
 ----------
+
+\label{sec:idempotent}
 
 For consistency, accumulation needs not just monoids on values, but
 idempotent monoids. There is no typeclass for idempotent monoids
@@ -40,6 +44,8 @@ index, Hackage\cite{hackage:idempotent} (see \ref{sub:hackage}).
 
 Improving Arrows
 ----------------
+
+\label{sec:improve}
 
 Certain arrows are relatively heavyweight. This often stretches to
 arrows which are created from the `arr` and `id` functions both of

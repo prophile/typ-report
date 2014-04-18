@@ -32,6 +32,13 @@ which keep some state, the type of which is hidden: in the automaton
 case the state is held in free variables; existential state arrows
 keep the state explicit.
 
+The existential constraint also prevents the state from "leaking"
+beyond being used in further computations[^pun], as would be true
+for the automaton formulation.
+
+[^pun]: Thus, sadly, robbing me of my opportunity to make an
+``existential crisis'' pun.
+
 The various instances differ for the existential state arrow from ordinary state
 arrows as a result of the type of the state not necessarily being the same
 between two arrows being combined. In particular, the composition of two arrows

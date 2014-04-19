@@ -1,18 +1,105 @@
-\begin{landscape}
 \chapter{Project Planning}
 \section{Risk Management}
-\begin{tabu} to 0.9\linewidth { X[3,r] | X[7,l] | X[c] | X[c] | X[7,l] }
-\textbf{Risk} & \textbf{Description} & \rot{\textbf{Risk level (1--5)}} & \rot{\textbf{Likelihood (1--5)}} & \textbf{Mitigation} \\ \hline
-Data Loss &
-  Loss of data through corruption, or loss of hard disks. &
-  4 & 4 &
-  Periodic backups. Duplicates of data held in ECS with ECS's backup
-  systems\footnote{ECS's fire safety record notwithstanding\cite{fireRecord}.} and on GitHub (as described in Section~\ref{sub:github}). \\
-Personal Injury &
-  Various forms of personal incapacitation inhibiting progress. &
-  3 & 2 &
-  Staged planning, first drafted completed six weeks in advance. \\
+As a matter of practicality, it is useful to have some idea of what risks
+and potential delays are involved in a project such as this. Rather than
+take the usual approach of approximations and guesswork, I decided to
+approach the assessment of risks quantitatively. In the risk assessment
+table that follows, I have given for each risk a \emph{likelihood} -- a
+probability between 0 and 1 inclusive, and an \emph{impact} given in the
+amount of days of delay the risk may induce. This gives, for each risk, an
+expected delay in days by taking the product of the two values.
+
+\subsection{Data Loss (implementation)}
+
+\textbf{Data Loss of implementation} would be an extremely frustrating
+setback. This could happen easily through physical damage to its storage
+media. On the Gantt chart the implementation time is estimated as \textbf{3
+weeks} so that is the figure I present for the impact: 21 days.
+
+To estimate the probability, I consider the three major failure modes:
+failure of storage medium, failure of the computer to which it is attached,
+and failure of the building containing it.
+
+Toshiba state the mean time between failure of their hard disks as
+600,000 hours, which is 25000 days\todo{source}. We can therefore
+infer that the number of failures in any particular day follows a
+poisson distribution: $\operatorname{Po}(\frac{1}{25000})$.
+
+I would estimate the mean lifetime of an Apple MacBook Pro -- the machine I
+am using -- at 4 years. I state this, unfortunately, without evidence. This
+figure gives a MTBF of 1461 days, so by a similar mechanism we infer the
+Poisson distribution $\operatorname{Po}(\frac{1}{1461})$.
+
+The University of Southampton has burnt down two buildings within the last
+10 years\cite{fireRecord}\todo{Find a second source, for the most recent
+fire}. This corresponds to a MTBF of 1825.25 days, giving rise to the third
+Poisson distribution $\operatorname{Po}(\frac{1}{1825.25})$.
+
+From the sum of these we can conclude that the number of catastrophic
+instances of data loss per day follows $\operatorname{Po}(\frac{339291761}
+{266669025000})$. By the usual simple tools of probability and the
+probability mass function of the poisson distribution, we can conclude that
+the probability of no failures at all over 70 days (10 weeks between the
+start of implementation and the end of the project) is approximately
+\textbf{8.52\%}.
+
+\subsection{Data Loss (report)}
+
+\textbf{Data Loss of the final report} would be equally frustrating to
+losing the implementation, although luckily for the consideration of its
+risk I am given a moment of respite from the frustration by being able to
+reuse most of the data loss calculations from the consideration of the
+implementation. The impact I would estimate at \textbf{56 days} since this
+is the time put aside to the interim report, draft report and final report
+in the Gantt chart.
+
+The number of catastrastrophic failures per day remains the same as before,
+following $\operatorname{Po}(\frac{339291761}{266669025000})$. What changes
+is the number of days: the interim report is started 8 weeks before the
+implementation, giving an additional 56 days for a total at-risk period of
+126 days, from which we can conclude a probability of no failures of that period
+of $85.2\%$, or equivalently a \textbf{14.8\%} probability of failure.
+
+\subsection{Illness or Injury}
+
+Personal illness or injury is always a risk in long-term projects.
+For this particular risk I will not (for obvious privacy reasons)
+go into in-depth calculations but will simply state an expected
+delay of \textbf{4 weeks} and refer readers to FPSE's records for
+further information.
+
+\begin{figure}
+\begin{tabu} to 0.9\linewidth { X[7,r] | X[c] | X[c] | X[c] }
+  \textbf{Risk} & \rot{\textbf{Likelihood}} &
+    \rot{\textbf{Impact (days)}} & \rot{\textbf{Expected delay (days)}} \\
+    \hline
+    Data Loss (implementation) & 8.5\%
+                               & 21
+                               & 1.8 \\
+    Data Loss (report) & 14.8\%
+                       & 56
+                       & 8.3 \\
+    Health/Injury & --
+                  & --
+                  & 28
 \end{tabu}
+\caption{Summary of risks.}
+\label{fig:risks}
+\end{figure}
+
+% \begin{tabu} to 0.9\linewidth { X[3,r] | X[7,l] | X[c] | X[c] | X[7,l] }
+% \textbf{Risk} & \textbf{Description} & \rot{\textbf{Risk level (1--5)}} & \rot{\textbf{Likelihood (1--5)}} & \textbf{Mitigation} \\ \hline
+% Data Loss &
+%   Loss of data through corruption, or loss of hard disks. &
+%   4 & 4 &
+%   Periodic backups. Duplicates of data held in ECS with ECS's backup
+%   systems\footnote{ECS's fire safety record notwithstanding\cite{fireRecord}.} and on GitHub (as described in Section~\ref{sub:github}). \\
+% Personal Injury &
+%   Various forms of personal incapacitation inhibiting progress. &
+%   3 & 2 &
+%   Staged planning, first drafted completed six weeks in advance. \\
+% \end{tabu}
+\begin{landscape}
 \section{Gantt Chart}
 
 \resizebox{\linewidth}{!}{

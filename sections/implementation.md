@@ -74,6 +74,9 @@ It is possible to use these proof types at the top-level, and
 constructing a value of a particular proof type is sufficient to
 prove the statement to which it corresponds.
 
+Within the family of dependently-typed proof-assistants, I will
+look at three options: Coq, Agda, and Idris.
+
 [^dtdesug]: This is somewhat of a cheat, desugaring this yields $(a :
 \texttt{Type}) \to (b : \texttt{Type}) \to (n : \mathbb{N}) \to (a \to b) \to
 \texttt{Vect}\: n\: a \to \texttt{Vect}\: n\: b$. This makes it clear that parts
@@ -84,6 +87,45 @@ types'.
 as a 4-tuple: two function $f : a \to b$ and $g : b \to a$ coupled with two
 proofs, $(x : a) \to g\: (f\: x) = x$ and $(x : b) \to f\: (g\: x) = x$. In the
 standard library of Idris, this very form is used\cite{idrIso}.
+
+### Coq
+
+Of the three proof assistants, Coq is by far the oldest: it was first
+released in 1984\cite{coqRef}.
+
+### Idris
+
+Idris is a relatively new language, and unlike Coq and Agda is
+designed as a general-purpose programming language with dependent
+types, rather than as a proof-assistant from the start\cite{idris}.
+It does, however, have proof-assistant capabilities\cite{idrisProof}.
+
+### Agda
+
+Agda is unusual in the domain of proof assistants as the usual style of
+"list of tactics" is eschewed in favour of proofs written in a functional
+programming style\cite{agda}.
+
+### Decision
+
+\todo{better title}
+
+All three of these systems have merits. Whilst I tried all of them, I opted
+-- in the end -- for Agda. Coq is the furthest removed from Haskell of the
+three which meant more to learn and introduced more scope for errors in
+translation; Idris's support for proofs is still in relatively early stages
+and I found proofs in it rather tricky[^because]. Agda is outwardly similar
+to Haskell in many ways (types can be written, for instance, using the very
+familiar GADT syntax of Haskell) but is very dependable and eminently
+stable.
+
+I had some difficulty with one particular proof case in Agda, which
+involved trying express that the cartesian-product of types is
+associative. Having done so, I proved all the arrow and category
+laws for `Wire`. The Agda proofs are in Appendix\ \ref{apx:proofs}.
+
+[^because]: This may be because Idris is designed primarily as a
+programming language rather than a proof-assistant.
 
 Idempotent
 ----------

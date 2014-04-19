@@ -69,7 +69,8 @@ computation in the network.
 
 This representation is given in Figure\ \ref{fig:existentialStateOpt}, using
 GADT syntax\cite{gadts}. This forms the foundation of my implementation, with
-the actual proofs for the various instances given in Chapter\ \ref{chap:proofs}.
+the actual proofs for the various instances given later\todo{Include Agda
+bits}.
 
 \begin{figure}
 \begin{lstlisting}

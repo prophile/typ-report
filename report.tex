@@ -17,6 +17,7 @@
 \author{\mauthor}
 \date{\today}
 
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{parskip}
 
@@ -57,7 +58,22 @@
                {|}{{$\mid$}}1
     }
 
+\lstset{inputencoding=utf8}
+
+% Some UTF-8 support. Yes, this is stupid. Yes, LaTeX is terrible.
+\DeclareUnicodeCharacter{2081}{$_{1}$}
+\DeclareUnicodeCharacter{2082}{$_{2}$}
+\DeclareUnicodeCharacter{2083}{$_{3}$}
+\DeclareUnicodeCharacter{2084}{$_{4}$}
+\DeclareUnicodeCharacter{2085}{$_{5}$}
+\DeclareUnicodeCharacter{2200}{$\forall$}
+\DeclareUnicodeCharacter{2218}{$\circ$}
+\DeclareUnicodeCharacter{2261}{$\equiv$}
+\DeclareUnicodeCharacter{03BB}{$\lambda$}
+
 \usepackage{tabu}
+
+\usepackage{verbatim}
 
 \usepackage{pdflscape}
 
@@ -138,10 +154,13 @@ the arrow laws.}
 
 \bibliography{report}
 
+\begin{landscape}
 \chapter{Proofs}
 \label{apx:proofs}
 
-Some text.
+%\lstinputlisting{StateAuto.agda}
+\verbatiminput{StateAuto.agda}
+\end{landscape}
 
 }
 

@@ -132,8 +132,32 @@ Idempotent
 
 \label{sec:idempotent}
 
-For consistency, accumulation needs not just monoids on values, but
-idempotent monoids. There is no typeclass for idempotent monoids
+It is often wise to place constraints in order to guarantee that a
+system behaves "sensibly", for some definition thereof. The type I
+have given for wires could accept the full generality of state types
+and functions[^bitoa]. However, it is possible to make tighter guarantees
+about its behaviour.
+
+[^bitoa]: It is isomorphic, as mentioned *ad nauseam*, to the
+automaton arrow transformer, which does accept the full generality of
+state types.
+
+In particular, it would be nice to enforce a consistency property:
+stepping a wire multiple times with unchanging inputs will not lead to
+changing outputs. This allows us to reason about parts of an FRP
+network which will not change under certain circumstances.
+
+Accumulating values in a monoid is a simple operation, but general
+enough to allow for a range of different and useful behaviours. Using
+the `Last` monoid on `Maybe` types gives a latching behaviour; using
+monoids from extrema allows one to track the limits of a value that
+have ever been held. However, the addition monoid (as an example)
+gives an integration behaviour which does not obey the aforementioned
+consistency property of unchanging inputs leading to unchanging
+outputs.
+
+To enforce that property, we require that the accumulating monoids be
+idempotent. There is no typeclass for idempotent monoids
 anywhere within Haskell's standard libraries[^1].
 
 [^1]: That is to say, libraries included with GHC or the Haskell platform.

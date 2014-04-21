@@ -1,7 +1,7 @@
 Design
 ======
 
-After a significant amount of investigation into the traditional
+After a significant level of investigation into the traditional
 Applicative[^1] style of FRP, I decided to follow the arrow approach
 for my own implementation.  Indeed, credence has been lent to the
 arrow-based approach by both Hudak\cite{arrowsRobots} and
@@ -28,22 +28,22 @@ arrows\cite{automatonArrows} and existential\cite{existentialTypes}
 state arrows\cite{arrowNotation}, which are shown in
 Figure\ \ref{fig:existentialState} as an arrow transformer. The intuition
 behind this isomorphism is that both types represent computations
-which keep some state, the type of which is hidden: in the automaton
-case the state is held in free variables; existential state arrows
+which keep some state, the type of which is hidden. In the automaton
+case the state is held in free variables, but existential state arrows
 keep the state explicit.
 
 The existential constraint also prevents the state from "leaking"
-beyond being used in further computations[^pun], as would be true
-for the automaton formulation.
+beyond use in further computations[^pun]; as is true in the automaton
+formulation.
 
 [^pun]: Thus, sadly, robbing me of my opportunity to make an
 ``existential crisis'' pun.
 
-The various instances differ for the existential state arrow from ordinary state
-arrows as a result of the type of the state not necessarily being the same
-between two arrows being combined. In particular, the composition of two arrows
-has the product of the two state types for state; the identity uses a unit state
-type[^unit].
+The various instances for the existential state arrow differ from
+those of ordinary state arrows as a result of the type of the state
+not necessarily being the same between two values being combined.
+In particular, the composition of two arrows has the product of the
+two state types for state; the identity uses a unit state type[^unit].
 
 [^unit]: The unit type (the type inhabited by one value, other than bottom) is
 denoted `()` in Haskell.
@@ -61,15 +61,16 @@ If one should choose to use the existential state arrow representation as
 opposed to Paterson's automaton representation, there is one important
 optimisation to make. Theoretically, a product with a unit -- for example,
 composition with the identity arrow -- is identity up to isomorphism; however,
-practically speaking it comes with a runtime cost[^cost]. It is convenient to
-have a separate constructor which can be understood to be equivalent to the
-arrow with unit-state, but which allows a more efficient representation at
-runtime -- in particular, the memory does not grow for every non-stateful
-computation in the network.
+practically speaking it comes with a runtime cost[^cost].
 
-This representation is given in Figure\ \ref{fig:existentialStateOpt}, using
-GADT syntax\cite{gadts}. This forms the foundation of my implementation, with
-the actual proofs for the various instances given in Appendix\ \ref{apx:proofs}.
+It is convenient to have a separate constructor which can be
+understood to be equivalent to the arrow with unit-state, but which
+allows a more efficient representation at runtime -- in particular,
+the memory does not grow for every non-stateful computation in the
+network. This representation is given in Figure\
+\ref{fig:existentialStateOpt}, using GADT syntax\cite{gadts}, and
+it forms the foundation of my implementation, with the proofs
+for the various instances given in Appendix\ \ref{apx:proofs}.
 
 \begin{figure}
 \begin{lstlisting}

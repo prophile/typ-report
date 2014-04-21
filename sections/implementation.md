@@ -3,6 +3,8 @@ Implementation
 
 \label{chap:impl}
 
+\todo{Write an opening paragraph for this section, introducing the Wire type.}
+
 Most of the operations of the Wire type are the operations of the basic arrow
 typeclasses. Wire is also an arrow transformer and an instance of the
 `ArrowCircuit` typeclass\citep{automatonArrows}.
@@ -67,7 +69,7 @@ types*. These are types of the form $a = b$, and are inhabited by
 one value if $a$ and $b$ are identical, and uninhabited
 otherwise\cite{depProofAssistant}.  Coupled with the interdependence
 offered by dependent types, this can be powerful on its own for
-programming[^isodep], and are used in a non-dependent context within
+programming[^isodep], and is used in a non-dependent context within
 GHC for implementation of GADTs\cite{gadts}.
 
 It is possible to use these proof types at the top-level, and
@@ -90,10 +92,14 @@ standard library of Idris, this very form is used\cite{idrIso}.
 
 ### Coq
 
+\todo{Expand me!}
+
 Of the three proof assistants, Coq is by far the oldest: it was first
 released in 1984\cite{coqRef}.
 
 ### Idris
+
+\todo{Expand me too!}
 
 Idris is a relatively new language, and unlike Coq and Agda is
 designed as a general-purpose programming language with dependent
@@ -101,6 +107,8 @@ types, rather than as a proof-assistant from the start\cite{idris}.
 It does, however, have proof-assistant capabilities\cite{idrisProof}.
 
 ### Agda
+
+\todo{Particularly expand me!}
 
 Agda is unusual in the domain of proof assistants as the usual style of
 "list of tactics" is eschewed in favour of proofs written in a functional
@@ -148,13 +156,13 @@ changing outputs. This allows us to reason about parts of an FRP
 network which will not change under certain circumstances.
 
 Accumulating values in a monoid is a simple operation, but general
-enough to allow for a range of different and useful behaviours. Using
-the `Last` monoid on `Maybe` types gives a latching behaviour; using
-monoids from extrema allows one to track the limits of a value that
-have ever been held. However, the addition monoid (as an example)
-gives an integration behaviour which does not obey the aforementioned
-consistency property of unchanging inputs leading to unchanging
-outputs.
+enough to allow for a range of different and useful behaviours.
+Using the `Last` monoid on `Maybe` types gives a latching behaviour;
+using monoids from extrema allows one to track the limits of a value
+that have been held at previous points. However, the addition monoid
+(as an example) gives an integration behaviour which does not obey
+the aforementioned consistency property of unchanging inputs leading
+to unchanging outputs.
 
 To enforce that property, we require that the accumulating monoids be
 idempotent. There is no typeclass for idempotent monoids
@@ -171,10 +179,10 @@ Improving Arrows
 
 \label{sec:improve}
 
-Certain arrows are relatively heavyweight. This often stretches to
-arrows which are created from the `arr` and `id` functions both of
-which could be expected to be cheap, and certainly one might imagine
-that they could be folded together.
+Certain arrows are relatively heavyweight\todo{Rephrase}. This often
+stretches to arrows which are created from the `arr` and `id`
+functions both of which could be expected to be cheap, and certainly
+one might imagine that they could be folded together.
 
 Additionally, there are a number of typeclasses that all arrows
 satisfy, but which it is tedious to enumerate for every arrow

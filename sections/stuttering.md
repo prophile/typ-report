@@ -3,9 +3,12 @@ Stuttering and Glitches
 
 \label{chap:glitches}
 
-Simple FRP systems suffer from a problem called glitches. Consider, under the
-usual Applicative interpretation, the example given in Figure
-\ref{fig:glitchExample}.
+Simple FRP systems suffer from a problem called glitches. Consider,
+under the usual Applicative interpretation, the example given in
+Figure \ref{fig:glitchExample}. Under the pull semantics, one can
+observe that `output` must necessarily take the value `False`, since
+in normal logic the conjunction of any value with its negation is
+false.
 
 \begin{figure}
 
@@ -20,17 +23,13 @@ output = liftA2 (&&) input (fmap not input)
 \label{fig:glitchExample}
 \end{figure}
 
-Under the pull semantics, one can observe that `output` must necessarily take
-the value `False`, since in normal logic the conjunction of any value with its
-negation is false.
-
 Under the push semantics, however, one can potentially witness a very surprising
 result, depending on the push-order. Assuming push is left-biased (that is,
 `<*>` receives updates from its left argument first), consider the case in which
 `input` has an edge from `False` to `True`. In this case, `output` receives an
 update taking its first input from `False` to `True` -- and using the previous
 value of the other output, it evaluates `True && True` as `True` before the
-update on the right-hand input is received.
+update on the right-hand input is received\todo{Better explanation}.
 
 This is somewhat unfortunate[^unf]. It is similar, in many ways, to an analogous
 problem arising from propagation delays in digital logic
@@ -64,7 +63,7 @@ and such combinations can be useful in practice. Still, it is
 possible that further research might be done on the use of linear
 or affine types in this circumstances, perhaps in a language with
 language-level support for linear types such as `Clean`\cite{cleanIO}
-and Rust\cite{lang:rust}.
+or Rust\cite{lang:rust}.
 
 [^unf]: To use a standard Haskell safety example\cite{beautiful}, consider the
 output of this network being whether to fire the missiles, causing serious

@@ -17,7 +17,7 @@ notation\cite{arrowNotation}.
 
 \pagebreak[1]
 
-The `ArrowWriter`, `ArrowReader` and `ArrowState` instance need the flexible
+The `ArrowWriter`, `ArrowReader` and `ArrowState` instances need the flexible
 instance language features, so we pull those in too.
 
 > {-# LANGUAGE FlexibleInstances #-}
@@ -26,7 +26,7 @@ instance language features, so we pull those in too.
 
 \pagebreak[1]
 
-From the module, we export the main `Wire` type:
+We export the main `Wire` type from the module:
 
 > -- |Very simple FRP state wires, using existential state.
 > module Control.FRP.Wire(Wire,
@@ -96,7 +96,7 @@ underlying arrow type.
 >   WLift :: a b c -> Wire a b c
 
 The second constructor, `WState`, is the actual meat of the data type: for an
-existential type `s` here hidden behind the GADT mechanism, it is a moore
+existential type `s` here hidden behind the GADT mechanism, it is a Moore
 machine with b and c as the input and output alphabets respectively, and s for
 the set of states. The second parameter is the initial state.
 
@@ -108,8 +108,8 @@ is here a separate constructor to avoid the memory usage associated with `(a,
 
 The `runWire` combinator is a matter of convenience, and runs a wire which takes
 a unit and input and output indefinitely, feeding back to itself. When the
-underlying arrow is `Hask` this is rather pointless, but this can run a full
-program when it is, for instance, `Kleisli IO`.
+underlying arrow is `Hask` this is admittedly rather pointless. In other arrows,
+such as `Kleisli IO`, however, this can run a full program.
 
 > -- |Run an IO-free wire, running indefinitely.
 > runWire :: (Arrow a) => Wire a () () -> a () ()
@@ -148,7 +148,7 @@ The composition of two lifted values is similarly simple.
 
 The composition of a lifted computation with a stateful one is
 relatively simple: while it results in a stateful computation, the
-state is only kept from the one stateful component. The lifted
+state is only kept from the single stateful component. The lifted
 computation is made to 'ignore' the state with `first`.
 
 >   WLift f . WState g isg = WState (first f . g) isg
@@ -264,7 +264,7 @@ previous state `x` accumulates `x` into `s` with `mappend` -- which is labelled
 If the underlying arrow has an instance for `ArrowZero` we make
 that available as a simple lift. It would be possible to implement
 this for `ArrowPlus` as well, but I did not do so due to unsubstantiated
-suspicions about memory usage.
+suspicions about memory usage\todo{Think about this some more}.
 
 > instance (ArrowZero a) => ArrowZero (Wire a) where
 >   zeroArrow = WLift zeroArrow

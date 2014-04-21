@@ -1,36 +1,35 @@
 Background
 ==========
 
-Functional Reactive Programming was originally developed in
+Functional Reactive Programming was originally described in
 1997 by Elliott and Hudak\cite{frAnimation}. It has since been
 developed in a number of different libraries and systems.
 
-Microsoft created a system for their C#\cite{lang:csharp} language
+Microsoft created a system for their C# language\cite{lang:csharp}
 based on FRP concepts called the Reactive Extensions, or `Rx`\cite{rx}.
-This was then later ported to JavaScript\cite{lang:javascript} under
-the name `RxJS`.
-
-There are other FRP libraries for JavaScript, including
+This was later ported to JavaScript\cite{lang:javascript} under the
+name `RxJS`. There are other FRP libraries for JavaScript, including
 `Bacon.js`\cite{ws:bacon}.
 
 FRP has been implemented in domain-specific langauges for a variety
-of applications, including applications on the web. `Elm`\cite{ws:elm}
-is one example of such a language, as is `Flapjax`\cite{flapjax}.
+of applications, including web applications. `Elm`\cite{ws:elm} is
+one example of such a language, as is `Flapjax`\cite{flapjax}.
 
 In Haskell\cite{lang:haskell}, the language on which I will focus
 for most of the rest of this report, there is a veritable smorgasbord
 of different implementations. Based on the original types as described
 by Elliott and Hudak\cite{frAnimation} and later revisited by Elliott
 in his paper "Push-Pull Functional Reactive Programming"\cite{pushPull},
-one finds Elliott's own `reactive`\cite{hackage:reactive} library,
-as well `reactive-banana`\cite{hackage:reactive-banana} and
+there is Elliott's own `reactive`\cite{hackage:reactive} library,
+as well as `reactive-banana`\cite{hackage:reactive-banana} and
 `sodium`\cite{hackage:sodium}.
 
-Following a slightly different route, there are a number of libraries
-using Arrowised FRP (AFRP)\cite{afrp}\cite{arrowsRobots}, which is
-heavily based on Hughes arrows\cite{arrows}.
-`netwire`\cite{hackage:netwire} and `Yampa`\cite{hackage:yampa} are
-probably the best known of these libraries.
+Furthermore, using a slightly different mechanism there are a number
+of libraries designed around Arrowised FRP
+(AFRP)\cite{afrp}\cite{arrowsRobots}, which is heavily based on
+Hughes arrows\cite{arrows}.  `netwire`\cite{hackage:netwire} and
+`Yampa`\cite{hackage:yampa} are probably the best known of these
+libraries.
 
 Hughes Arrows
 -------------
@@ -99,11 +98,11 @@ and functional reactive programming\cite{afrp}.
 "Traditional" FRP
 -----------------
 
-The traditional model of FRP as introduced by Hudak and Elliott --
-or, at least, the discrete variant -- uses two types, described in
-Figure\ \ref{fig:tfrpRS}\cite{pushPull}. In this context, `Future`
-refers to some notion of a value which will appear at a future point
-in time, analogous to promises\cite{promises}.
+The traditional model of FRP as introduced by Hudak and Elliott,
+in its discrete form, uses two types described in Figure\
+\ref{fig:tfrpRS}\cite{pushPull}. In this context, `Future` refers
+to some notion of a value which will appear at a future point in
+time, analogous to Promises\cite{promises}.
 
 \begin{figure}
 
@@ -146,9 +145,9 @@ of outputs for each input. This phenomenon is known as the Brock-Ackerman
 anomaly\cite{brockAckerman}, and will be covered more in Chapter\ 
 \ref{chap:glitches}.
 
-The monad instance, as mentioned, derives from a monoid on `Future`:
+The monad instance, introduced previously, derives from a monoid on `Future`:
 a monoid which represents the "first" event of a pair of events. A
-future is in essence an occurrence of an event, that is, the product
+future is in essence an occurrence of an event; that is, the product
 of the data it carries with time.
 
 There are two things to immediately note about the monoid. Firstly,

@@ -98,10 +98,14 @@
 \end{center}
 \end{titlepage}
 
-\abstract{In this report I explore the avoidance of stuttering and glitches in
-functional reactive programming systems with an implementation in the pure
-functional language Haskell. I also introduce a novel isomorphism between the Automaton
-representation of mealy machines and Paterson's state arrows using existential types.}
+\abstract{In this report, I explore the background of functional reactive
+programming: in particular, semantics and implementations of it which avoid a
+class of transient error known as glitches. In so doing, I show that including
+the inputs of an FRP network within the type of its behaviours, as in the
+Hughes arrow formulations, avoids glitches by construction. I then give an
+Arrow-driven implementation using a novel isomorphism between Paterson's
+automaton Arrows and state arrows with existential types, including proofs for
+the arrow laws.}
 
 \tableofcontents
 

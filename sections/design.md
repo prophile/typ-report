@@ -18,8 +18,8 @@ types\cite{hackage:netwire}\cite{hackage:yampa}.
 [^1]: Traditional FRP uses applicative functors in no small
 measure\cite{applicatives}\cite{pushPull}.
 
-The State-Automaton Isomorphism
--------------------------------
+Stateful Automata
+-----------------
 
 \label{sec:stateAuto}
 

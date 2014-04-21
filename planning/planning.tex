@@ -21,24 +21,24 @@ failure of storage medium, failure of the computer to which it is attached,
 and failure of the building containing it.
 
 Toshiba state the mean time between failure of their hard disks as
-600,000 hours, which is 25000 days\cite{toshibaMTBF}. We can therefore
+600,000 hours, which is 25,000 days\cite{toshibaMTBF}. We can therefore
 infer that the number of failures in any particular day follows a
-poisson distribution: $\operatorname{Po}(\frac{1}{25000})$.
+Poisson distribution: $\operatorname{Po}(\frac{1}{25000})$.
 
 I would estimate the mean lifetime of an Apple MacBook Pro -- the machine I
 am using -- at 4 years. I state this, unfortunately, without evidence. This
-figure gives a MTBF of 1461 days, so by a similar mechanism we infer the
+figure gives a MTBF of 1,461 days, so by a similar mechanism we infer the
 Poisson distribution $\operatorname{Po}(\frac{1}{1461})$.
 
 The University of Southampton has burnt down two buildings within
 the last 10 years\cite{fireRecord, fireRecord2}. This corresponds
-to a MTBF of 1825.25 days, giving rise to the third Poisson
+to a MTBF of 1,825.25 days, giving rise to the third Poisson
 distribution $\operatorname{Po}(\frac{1}{1825.25})$.
 
 From the sum of these we can conclude that the number of catastrophic
 instances of data loss per day follows $\operatorname{Po}(\frac{339291761}
 {266669025000})$. By the usual simple tools of probability and the
-probability mass function of the poisson distribution, we can conclude that
+probability mass function of the Poisson distribution, we can conclude that
 the probability of no failures at all over 70 days (10 weeks between the
 start of implementation and the end of the project) is approximately
 \textbf{8.52\%}.

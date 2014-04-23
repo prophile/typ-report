@@ -1,0 +1,10 @@
+In this report, I explore the background of functional reactive
+programming: in particular, semantics and implementations of it
+which avoid a class of transient error known as glitches. In so
+doing, I show that including the inputs of an FRP network within
+the type of its behaviours, as in the Hughes arrow formulations,
+avoids glitches by construction. I then give an Arrow-driven
+implementation using a novel isomorphism between Paterson's automaton
+Arrows and state arrows with existential types, including proofs
+for the arrow laws.
+

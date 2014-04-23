@@ -67,9 +67,9 @@ It is convenient to have a separate constructor which can be
 understood to be equivalent to the arrow with unit-state, but which
 allows a more efficient representation at runtime -- in particular,
 the memory does not grow for every non-stateful computation in the
-network. This representation is given in Figure\
-\ref{fig:existentialStateOpt}, using GADT syntax\cite{gadts}, and
-it forms the foundation of my implementation, with the proofs
+network. This representation is given in
+Figure\ \ref{fig:existentialStateOpt}, using GADT syntax\cite{gadts},
+and it forms the foundation of my implementation, with the proofs
 for the various instances given in Appendix\ \ref{apx:proofs}.
 
 \begin{figure}

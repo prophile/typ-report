@@ -172,3 +172,28 @@ removes most of the motivation for the "pull" part of Elliott's
 "push-pull" model, so these `Behaviour`s are no more interesting
 than `Reactive`s.
 
+Arrow Transformers
+------------------
+
+Using a similar mechanism to monad transformers\cite{combiningMonads},
+Hughes introduced arrow transformers\cite{arrows}. These types,
+kinded as $(* \to * \to *) \to (* \to * \to *)$, augment an arrow
+with additional functionality, and admit an operation `lift` which
+lifts a computation from the underlying arrow into the transformed
+arrow. The typeclass, as implemented in the `arrows`
+package\cite{hackage:arrows}, is given in Figure\ \ref{fig:arrTrans}.
+
+As an example, one can augment an arrow with the ability to read
+an environment, akin to the `ReaderT` monad transformer, by
+transforming from `a b c` for the arrow `a` to `a (b, r) c`.
+
+\begin{figure}
+\begin{lstlisting}
+class (Arrow a, Arrow (f a)) => ArrowTransformer f a where
+  lift :: a b c -> f a b c
+\end{lstlisting}
+
+\caption{The \texttt{ArrowTransformer} typeclass.}
+\label{fig:arrTrans}
+\end{figure}
+

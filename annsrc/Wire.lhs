@@ -227,11 +227,13 @@ underlying arrow, is simply a matter of applying the WLift constructor.
 
 \pagebreak[2]
 
-We export the typeclass of wire-like operations. In principle, we could allow
-this to be the same as `ArrowCircuit` as in Paterson's automata; however, there
-are consistency reasons \todo{explain} to opt for a further restriction: to
-allow only accumulation through idempotent monoids. The combinator for doing so
-is called `accumulate` and is made available through this typeclass.
+We export the typeclass of wire-like operations. In principle, we
+could allow this to be the same as `ArrowCircuit` as in Paterson's
+automata; however, there are consistency reasons (see
+Section\ \ref{sec:idempotent}) to opt for a further restriction:
+to allow only accumulation through idempotent monoids. The combinator
+for doing so is called `accumulate` and is made available through
+this typeclass.
 
 The wordy comment has words roughly to the same effect, but is used, as with
 every other symbol made available from this module, for Haddock documentation
@@ -263,8 +265,8 @@ previous state `x` accumulates `x` into `s` with `mappend` -- which is labelled
 
 If the underlying arrow has an instance for `ArrowZero` we make
 that available as a simple lift. It would be possible to implement
-this for `ArrowPlus` as well, but I did not do so due to unsubstantiated
-suspicions about memory usage\todo{Think about this some more}.
+this for `ArrowPlus` as well, but I did not do so due to reservations
+about memory usage.
 
 > instance (ArrowZero a) => ArrowZero (Wire a) where
 >   zeroArrow = WLift zeroArrow

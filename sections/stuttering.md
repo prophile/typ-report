@@ -3,45 +3,38 @@ Stuttering and Glitches
 
 \label{chap:glitches}
 
-Simple FRP systems suffer from a problem called glitches. Consider,
-under the usual Applicative interpretation, the example given in
-Figure \ref{fig:glitchExample}. Under the pull semantics, one can
-observe that `output` must necessarily take the value `False`, since
-in normal logic the conjunction of any value with its negation is
-false.
+Many FRP systems suffer from a problem of glitches. They can arise as a result
+of simultaneous changes in inputs. Imagine a behaviour `A` dependent on two
+other behaviours `B` and `C`, which just takes their sum. Any change in either
+`B` or `C` should cause a corresponding change in `A` since that is the essence
+of reactive programming.
 
-\begin{figure}
+The most obvious semantics of this, and the semantics Elliott
+gives\cite{pushPull}, is that behaviours are time functions. At
+some particular interval, the outputs are evaluated, which will in
+turn evaluate the behaviours upon which they depend.  This is known
+as the "pull" semantics, where values at a particular time are
+"pulled" through the network from the outputs.
 
-\begin{lstlisting}
-input :: Reactive Bool
+An alternative, and more widely used, system is the "push" semantics. Under the
+push semantics, changes in the inputs of a network are propagated through. This
+is usually much more efficient for interactive systems because computation only
+happens when made necessary by a change in the environment, and thus a change in
+the inputs.
 
-output :: Reactive Bool
-output = liftA2 (&&) input (fmap not input)
-\end{lstlisting}
+Returning to our previous example, the push semantics breaks everything in a
+number of cases, the simplest of which is the case where `B` and `C` are the
+same value. A new value of `B` is pushed into `A`, but the other input needs to
+be pushed simultaneously: otherwise, `a` takes a sum, transiently, from a stale
+input on one side. It is not an unreasonable assumption that if `A` is `B + B`
+then it is equivalent to `2 * B` by the basic laws of arithmetic. In the
+presence of stuttering, this is not the case.
 
-\caption{An example of a glitch.}
-\label{fig:glitchExample}
-\end{figure}
-
-Under the push semantics, however, one can potentially witness a very surprising
-result, depending on the push-order. Assuming push is left-biased (that is,
-`<*>` receives updates from its left argument first), consider the case in which
-`input` has an edge from `False` to `True`. In this case, `output` receives an
-update taking its first input from `False` to `True` -- and using the previous
-value of the other output, it evaluates `True && True` as `True` before the
-update on the right-hand input is received\todo{Better explanation}.
-
-This is somewhat unfortunate[^unf]. It is similar, in many ways, to an analogous
-problem arising from propagation delays in digital logic
-circuits\cite{digitalHazards}. In the field of computer science, it is known as
-the Brock-Ackerman anomaly\cite{brockAckerman}.
-
-A critical observation here is that glitches arise as part of a larger
-phenomenon which we will call "stuttering": informally, the case where a single
-change in a network's input will cause more than one change in a network's
-output. While glitches may be avoided in other ways, a transient error cannot
-occur if transients cannot occur at all -- in other words, removing the problem
-of stuttering prevents, by definition, the emergence of glitches.
+Perhaps even more egregious is the example I gave in the introduction: of $A
+\land \lnot A$ being $\top$, by the same mechanism. Imagine that being used, for
+instance, in a safety-critical system: to draw on a standard Haskell
+example\cite{beautiful}, the missiles would be
+fired\cite{hackage:acme-missiles}.
 
 One possible solution here is to have each node "wait" on each of its inputs in
 turn, only yielding a value each time it has received an update from every
@@ -64,8 +57,3 @@ possible that further research might be done on the use of linear
 or affine types in this circumstances, perhaps in a language with
 language-level support for linear types such as `Clean`\cite{cleanIO}
 or Rust\cite{lang:rust}.
-
-[^unf]: To use a standard Haskell safety example\cite{beautiful}, consider the
-output of this network being whether to fire the missiles, causing serious
-international side effects\cite{hackage:acme-missiles}.
-

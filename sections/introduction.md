@@ -43,11 +43,34 @@ programming languages including C#, JavaScript, and Elm.
 
 Many current functional reactive programming implementations suffer from a
 problem of stuttering, in which a single input can cause multiple outputs. Some
-of these outputs may, in certain circumstances, be
-erroneous\todo{Forward-reference here}.
+of these outputs may, in certain circumstances, be erroneous. I
+will cover this in much more detail in Chapter\ \ref{chap:glitches}, but a brief
+explanation is in order.
 
-Using Haskell, I will show how using FRP formulations that, in contrast to
-some, capture both inputs and outputs can be shown to produce exactly one
-output for every input, enforced at the type level. This prevents stuttering and
-thus the glitches which this report seeks to oust\todo{re-phrase this paragraph}.
+Consider the triangular graph of dependencies given in
+Figure\ \ref{fig:exampleDeps}. In this graph, we shall assume that
+we are dealing with booleans. Let `B` depends on `A`, being its
+negation, and let `C` depend both on `A` and `B`, being their
+conjunction. It seems that at any point in time, the value held in
+`C` is $\bot$, being essentially $A \land \lnot A$.
+
+If we use a semantics where changes in a value are "pushed" to any
+dependent value, `C` can receive an update from `A` through *both* paths,
+and thus 'stutter', or produce more than one output for a single change in
+input. The danger here is the order in which updates occur. If a change
+from $\bot$ to $\top$ takes place in `A` and is "pushed" into `C` before
+`B`, `C` "sees" $\top$ from both `A` *and* `B`, and this erroneously gives
+the output $\top$ until the update is received from the other path.
+
+Using Haskell, I will show how using FRP formulations that, in
+contrast to some, capture both inputs and outputs can be shown to
+produce exactly one output for every input, enforced at the type
+level. This prevents stuttering, and in so doing prevents glitches.
+
+\begin{figure}
+\missingfigure{Include a GraphViz graph.}
+\caption{A triangular graph. The nodes represent functional reactive
+'behaviours', and the edges represent dependencies.}
+\label{fig:exampleDeps}
+\end{figure}
 

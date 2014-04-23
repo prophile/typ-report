@@ -260,3 +260,29 @@ exported modules, declarations and values.
 Hackage is a Haskell-specific package database\cite{ws:hackage}. It is analogous
 to `npm`\cite{ws:npm} or PyPI\cite{ws:pypi}.
 
+Prototypes
+----------
+
+During the initial research phase of the project, I implemented a prototype
+implementation based on the classic FRP formulation. It contained both signals
+and behaviours, and was tested with a number of unit tests rather than checked
+largely by types and proven in a proof assistant.
+
+The implementation took a matter of a few days to complete.
+
+The signals component was pure in all its combinators, but creating
+signals relied on the IO monad. To make Behaviours glitch-free
+required a use of the terrifying `unsafePerformIO`, which -- as its
+name suggests -- is generally an extremely bad idea[^note]. This
+implementation passed some unit tests for being glitch-free, although
+I harbour suspicions this was more a matter of luck than correctness.
+
+[^note]: While searching for academic sources on `unsafePerformIO`
+being considered harmful, I was mildly surprised to discover Conal
+Elliott came across exactly the same problem, in the same context,
+in 1998\cite{elliottFail}. Although I wasn't able to find a good
+source which warns of the problems (including type unsafety) of
+`unsafePerformIO` outright, Nestra does give an interesting summary
+of avoiding some of the associated issues which may be a useful
+window into their sheer depth\cite{purelyGlobal}.
+

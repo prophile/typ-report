@@ -60,7 +60,14 @@ implementation, giving an additional 56 days for a total at-risk period of
 126 days, from which we can conclude a probability of no failures of that period
 of $85.2\%$, or equivalently a \textbf{14.8\%} probability of failure.
 
-\todo{Write up something about mitigation here.}
+\subsection{Mitigation against data loss}
+
+I described in some detail in Chapter\ \ref{chap:impl} the configuration
+I put into place for backups, but in short, I took backups (regularly,
+each git commit) both inside ECS (relying on ECS's already extensive
+backups system) and on GitHub.
+
+This brings the risk of data loss to -- effectively -- zero.
 
 \subsection{Illness or Injury}
 

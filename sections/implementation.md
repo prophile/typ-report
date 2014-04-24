@@ -92,23 +92,20 @@ as a 4-tuple: two function $f : a \to b$ and $g : b \to a$ coupled with two
 proofs, $(x : a) \to g\: (f\: x) = x$ and $(x : b) \to f\: (g\: x) = x$. In the
 standard library of Idris, this very form is used\cite{idrIso}.
 
-\todo{Expand me!}
-
 Of the three proof assistants, Coq is by far the oldest: it was first
-released in 1984\cite{coqRef}.
-
-\todo{Expand me too!}
+released in 1984\cite{coqRef}. It has been used in a number of interesting
+research cases, including the proof of the four colour
+theorem\cite{fourColourTheorem}.
 
 Idris is a relatively new language, and unlike Coq and Agda is
 designed as a general-purpose programming language with dependent
 types, rather than as a proof-assistant from the start\cite{idris}.
 It does, however, have proof-assistant capabilities\cite{idrisProof}.
 
-\todo{Particularly expand me!}
-
 Agda is unusual in the domain of proof assistants as the usual style of
 "list of tactics" is eschewed in favour of proofs written in a functional
-programming style\cite{agda}.
+programming style\cite{agda}. It has been used in a number of previous instances
+for proofs of Haskell programs\cite{haskellAgda}.
 
 All three of these systems have merits. Whilst I tried all of them, I opted
 -- in the end -- for Agda. Coq is the furthest removed from Haskell of the

@@ -116,24 +116,25 @@ further information.
 \resizebox{\linewidth}{!}{
 \begin{ganttchart}[y unit chart=0.5cm,
                    hgrid=true,
-                   vgrid={dotted}]{18}
-  \gantttitle{Aug}{2}
-  \gantttitle{Sep}{2}
-  \gantttitle{Oct}{2}
-  \gantttitle{Nov}{2}
-  \gantttitle{Dec}{2}
-  \gantttitle{Jan}{2}
-  \gantttitle{Feb}{2}
-  \gantttitle{Mar}{2}
-  \gantttitle{Apr}{2} \\
-  \ganttbar{Initial Research}{1}{8} \\ % elem0
-  \ganttbar{Project Brief}{4}{4} \\ % elem1
-  \ganttbar{Interim Report}{8}{9} \\ % elem2
-  \ganttbar{Prototyping}{9}{11} \\ % elem3
-  \ganttbar{Implementation}{12}{14} \\ % elem4
-  \ganttbar{Draft Report}{13}{15} \\ % elem5
-  \ganttbar{Final Report}{16}{18} \\ % elem6
-  \ganttbar{Supervision}{1}{18} % elem7
+                   vgrid={dotted}]{36}
+  \gantttitle{Aug}{4}
+  \gantttitle{Sep}{4}
+  \gantttitle{Oct}{4}
+  \gantttitle{Nov}{4}
+  \gantttitle{Dec}{4}
+  \gantttitle{Jan}{4}
+  \gantttitle{Feb}{4}
+  \gantttitle{Mar}{4}
+  \gantttitle{Apr}{4} \\
+  \ganttbar{Initial Research}{1}{16} \\ % elem0
+  \ganttbar{Project Brief}{7}{8} \\ % elem1
+  \ganttbar{Interim Report}{15}{18} \\ % elem2
+  \ganttbar{Prototyping}{17}{22} \\ % elem3
+  \ganttbar{Implementation}{23}{25} \\ % elem4
+  \ganttbar{Draft Report}{25}{30} \\ % elem5
+  \ganttbar{Final Report}{30}{33} \\ % elem6
+  \ganttbar{Supervision}{1}{36} \\ % elem7
+  \ganttbar{Contingency}{34}{36} % elem8
   \ganttlink{elem0}{elem3}
   \ganttlink{elem3}{elem4}
   \ganttlink{elem4}{elem6}

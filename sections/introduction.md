@@ -66,7 +66,7 @@ level. This prevents stuttering, and in so doing prevents glitches.
 \centering
 \digraph{Layout}{A -> C; A -> B; B -> C}
 \caption{A triangular graph. The nodes represent functional reactive
-'behaviours', and the edges represent dependencies.}
+`behaviours', and the edges represent dependencies.}
 \label{fig:exampleDeps}
 \end{figure}
 

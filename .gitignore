@@ -11,3 +11,5 @@ report.tdo
 Makefile.deps
 report.lof
 annsrc/Wire.tex
+Layout.dot
+Layout.pdf

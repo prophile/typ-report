@@ -168,10 +168,11 @@ Improving Arrows
 
 \label{sec:improve}
 
-Certain arrows are relatively heavyweight\todo{Rephrase}. This often
-stretches to arrows which are created from the `arr` and `id`
-functions both of which could be expected to be cheap, and certainly
-one might imagine that they could be folded together.
+Certain arrows have values which, even for simple cases, use computation
+power and often unnecessary amounts of memory. These simple cases can
+often include lifted functions through `arr` and `id`. It would be
+convenient to be able to reduce load by removing identity computations
+and folding together composed applications of `arr`.
 
 Additionally, there are a number of typeclasses that all arrows
 satisfy, but which it is tedious to enumerate for every arrow

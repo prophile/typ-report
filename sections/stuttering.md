@@ -30,7 +30,7 @@ input on one side. It is not an unreasonable assumption that if `A` is `B + B`
 then it is equivalent to `2 * B` by the basic laws of arithmetic. In the
 presence of stuttering, this is not the case.
 
-Perhaps even more egregious is the example I gave in the introduction: of $A
+Perhaps even more egregious\todo{more intuition} is the example I gave in the introduction: of $A
 \land \lnot A$ being $\top$, by the same mechanism. Imagine that being used, for
 instance, in a safety-critical system: to draw on a standard Haskell
 example\cite{beautiful}, the missiles would be

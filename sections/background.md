@@ -35,7 +35,7 @@ Hughes Arrows
 -------------
 
 In 2000, Hughes introduced Arrows\cite{arrows}. Arrows are a generalised type
-for computation, more powerful than applicative functors but less powerful than
+for computation, more powerful\todo{Reword from powerful} than applicative functors but less powerful than
 monads\cite{applicatives}. A basic arrow, implementing the `Arrow` typeclass,
 can be considered a cartesian monoidal category with a functor from
 `Hask`[^mon]. The `Arrow` typeclass as originally given by Hughes is given in
@@ -151,7 +151,7 @@ future is in essence an occurrence of an event; that is, the product
 of the data it carries with time.
 
 There are two things to immediately note about the monoid. Firstly,
-that the monoid must be *idempotent*. Were one to ask which came
+that the monoid must be *idempotent*\todo{Give some intuitions here}. Were one to ask which came
 first of two of the same occurrence, one would not expect any answer
 other than that of the very occurrence. Secondly, neither of the
 arguments to the monoid operation should have any bias towards it,
@@ -174,7 +174,7 @@ no more interesting than `Reactive`s.
 Arrow Transformers
 ------------------
 
-Using a similar mechanism to monad transformers\cite{combiningMonads},
+Using a similar mechanism to monad transformers\cite{combiningMonads},\todo{give some reason for including this section}
 Hughes introduced arrow transformers\cite{arrows}. These types,
 kinded as $(* \to * \to *) \to (* \to * \to *)$, augment an arrow
 with additional functionality, and admit an operation `lift` which

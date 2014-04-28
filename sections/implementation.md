@@ -3,6 +3,8 @@ Implementation
 
 \label{chap:impl}
 
+\todo{A lot more intutitive explanations needed in this chapter}
+
 The core type of type of the implementation, as introduced previously, is an
 arrow transformer named `Wire`. The name `Wire` comes from the name for AFRP
 signal functions used in `netwire` and `Yampa`, the most popular AFRP packages.
@@ -38,7 +40,7 @@ There are laws associated with arrows, which it would be convenient
 to prove. Rather than proving them by hand, which would be immeasurably
 tedious, I opted to use a proof assistant.
 
-The major category of proof assistants use dependent
+Most of the major proof assistants use dependent
 types\cite{depProofAssistant}. Dependent types are a type system which can
 contain values as part of the type\cite{depTypes}. They are useful for enforcing
 certain properties at the type level.
@@ -99,7 +101,7 @@ theorem\cite{fourColourTheorem}.
 
 Idris is a relatively new language, and unlike Coq and Agda is
 designed as a general-purpose programming language with dependent
-types, rather than as a proof-assistant from the start\cite{idris}.
+types, rather than as a proof-assistant from the start\cite{idris}.\todo{Apparently Agda is also a proglang?}
 It does, however, have proof-assistant capabilities\cite{idrisProof}.
 
 Agda is unusual in the domain of proof assistants as the usual style of

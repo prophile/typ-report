@@ -36,7 +36,7 @@ attempt to capture the reactive paradigm using current functional
 techniques. It has been successfully used in a range of programming
 languages including C#, JavaScript, and Elm.
 
-Many current functional reactive programming implementations suffer from a
+Many\todo{cite} current functional reactive programming implementations suffer from a
 problem of stuttering, in which a single input can cause multiple outputs. Some
 of these outputs may, in certain circumstances, be erroneous. I
 will cover this in much more detail in Chapter\ \ref{chap:glitches}, but a brief

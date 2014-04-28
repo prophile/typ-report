@@ -138,7 +138,7 @@ the functor.
 
 The `Applicative` instance for `Reactive` derives from the `Monad`
 instance via the usual
-mechanism\cite{applicatives}\cite{denotationalDesign}, and therein
+mechanism\cite{applicatives,denotationalDesign}, and therein
 lies the issue with glitches and traditional reactives: the monad
 instance from the monoid on Future inevitably leads to a cascade
 of outputs for each input. This phenomenon is known as the Brock-Ackerman

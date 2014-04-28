@@ -44,7 +44,7 @@ explanation is in order.
 
 Consider the triangular graph of dependencies given in
 Figure\ \ref{fig:exampleDeps}. In this graph, we shall assume that
-we are dealing with booleans. Let `B` depends on `A`, being its
+we are dealing with booleans. Let `B` depend on `A`, being its
 negation, and let `C` depend both on `A` and `B`, being their
 conjunction. It seems that at any point in time, the value held in
 `C` is $\bot$, being essentially $A \land \lnot A$.

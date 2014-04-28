@@ -33,11 +33,8 @@ case the state is held in free variables, but existential state arrows
 keep the state explicit.
 
 The existential constraint also prevents the state from "leaking"
-beyond use in further computations[^pun]; as is true in the automaton
+beyond use in further computations; as is true in the automaton
 formulation.
-
-[^pun]: Thus, sadly, robbing me of my opportunity to make an
-``existential crisis'' pun.
 
 The various instances for the existential state arrow differ from
 those of ordinary state arrows as a result of the type of the state

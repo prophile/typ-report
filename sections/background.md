@@ -161,16 +161,15 @@ should be *commutative*.
 Behaviours
 ----------
 
-Elliott describes a type `Behaviour a` which has the semantics of
-a function from times to `a`\cite{pushPull}. It is not uncommon for
-times to be taken as real numbers. If we restrict times to the
-natural numbers to model discrete points of time rather than
-continuous time, however, `Behaviour a` (being represented by the
-natural numbers) is then isomorphic to an infinite stream of
-`a`\cite{streamRep}. Restriction to the discrete case, however,
-removes most of the motivation for the "pull" part of Elliott's
-"push-pull" model, so these `Behaviour`s are no more interesting
-than `Reactive`s.
+Elliott describes a type `Behaviour a` which has the semantics of a
+function from a time domain to `a`\cite{pushPull}. It is not uncommon for
+times to be taken as real numbers. If we restrict times to the natural
+numbers to model discrete points of time rather than continuous time,
+however, `Behaviour a` (being represented by the natural numbers) is then
+isomorphic to an infinite stream of `a`\cite{streamRep}. Restriction
+to the discrete case, however, removes most of the motivation for the
+"pull" part of Elliott's "push-pull" model, so these `Behaviour`s are
+no more interesting than `Reactive`s.
 
 Arrow Transformers
 ------------------

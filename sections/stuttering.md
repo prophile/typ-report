@@ -30,11 +30,18 @@ input on one side. It is not an unreasonable assumption that if `A` is `B + B`
 then it is equivalent to `2 * B` by the basic laws of arithmetic. In the
 presence of stuttering, this is not the case.
 
-Perhaps even more egregious\todo{more intuition} is the example I gave in the introduction: of $A
-\land \lnot A$ being $\top$, by the same mechanism. Imagine that being used, for
-instance, in a safety-critical system: to draw on a standard Haskell
-example\cite{beautiful}, the missiles would be
-fired\cite{hackage:acme-missiles}.
+Perhaps even more egregious is the example I gave in the introduction:
+of $A \land \lnot A$ being $\top$, by the same mechanism. Imagine
+that being used, for instance, in a safety-critical system: to draw
+on a standard Haskell example\cite{beautiful}, the missiles would
+be fired\cite{hackage:acme-missiles}. It is entirely reasonable for
+a programmer to expect that $A \land \lnot A$ can never occur, as a
+matter of basic logic -- it would be an edge case nobody would be
+likely to account for[^digilog].
+
+[^digilog]: It is worth noting that a similar problem _can_ occur in digital
+logic circuits, although via an entirely different
+mechanism\cite{digitalHazards}.
 
 One possible solution here is to have each node "wait" on each of its inputs in
 turn, only yielding a value each time it has received an update from every

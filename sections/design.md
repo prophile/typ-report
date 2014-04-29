@@ -82,3 +82,16 @@ data EStateArrow a b c where
 
 [^cost]: Two machine words of memory -- 8 bytes on 32-bit platforms and 16 bytes on 64-bit -- and the cost of constructing and destructing the tuples.
 
+Intuition
+---------
+
+The basic intuition, in summary, is that glitches arise as a result
+of stuttering, which is where one input results in multiple outputs.
+By including the inputs in the type of FRP reactives, it can make
+the type "look like" a function: at the type level, there is no
+mechanism by which a function of type $a \to b$ can return anything
+other than exactly one $b$ when called with any particular $a$ as
+the argument. A simple generalisation for types that "look like"
+(and, in some senses, behave like) functions in Haskell is Hughes
+Arrows.
+

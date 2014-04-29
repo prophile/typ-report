@@ -3,8 +3,6 @@ Implementation
 
 \label{chap:impl}
 
-\todo{A lot more intutitive explanations needed in this chapter}
-
 The core type of type of the implementation, as introduced previously, is an
 arrow transformer named `Wire`. The name `Wire` comes from the name for AFRP
 signal functions used in `netwire` and `Yampa`, the most popular AFRP packages.

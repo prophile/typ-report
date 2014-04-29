@@ -34,13 +34,16 @@ libraries.
 Hughes Arrows
 -------------
 
-In 2000, Hughes introduced Arrows\cite{arrows}. Arrows are a generalised type
-for computation, more powerful\todo{Reword from powerful} than applicative functors but less powerful than
-monads\cite{applicatives}. A basic arrow, implementing the `Arrow` typeclass,
-can be considered a cartesian monoidal category with a functor from
-`Hask`[^mon]. The `Arrow` typeclass as originally given by Hughes is given in
-Figure\ \ref{fig:hughesTypeclass}, and the current typeclass hierarchy
+In 2000, Hughes introduced Arrows\cite{arrows}. Arrows are a
+generalised type for computation, more powerful[^def] than applicative
+functors but less powerful than monads\cite{applicatives}. A basic
+arrow, implementing the `Arrow` typeclass, can be considered a
+cartesian monoidal category with a functor from `Hask`[^mon]. The
+`Arrow` typeclass as originally given by Hughes is given in Figure\
+\ref{fig:hughesTypeclass}, and the current typeclass hierarchy
 implemented by Paterson is given in Figure\ \ref{fig:patersonTypeclass}.
+
+[^def]: 'Powerful' in the sense that more computations can be expressed with arrows than with applicatives, but fewer than with the full generality of monads.
 
 [^mon]: `arr` gives the functor from `Hask`, `>>>` and `arr id` are the
 composition and identities as a category, and `first` permits products.
@@ -151,12 +154,17 @@ future is in essence an occurrence of an event; that is, the product
 of the data it carries with time.
 
 There are two things to immediately note about the monoid. Firstly,
-that the monoid must be *idempotent*\todo{Give some intuitions here}. Were one to ask which came
-first of two of the same occurrence, one would not expect any answer
-other than that of the very occurrence. Secondly, neither of the
-arguments to the monoid operation should have any bias towards it,
-which would make the monoid unfair: that is to say, the monoid
-should be *commutative*.
+that the monoid must be *idempotent*. The general intuition here
+is that if the monoid is in some case a "the first to materalise
+of these two futures", then combining a future with itself should
+not change anything.
+
+Secondly, neither of the arguments to the monoid operation should
+have any bias towards it, which would make the monoid unfair: that
+is to say, the monoid should be *commutative*. Again, to give a
+general intuition, "the first of A or B" being different to "the
+first of B or A" suggests some kind of preferential treatment based
+on order of arguments.
 
 Behaviours
 ----------
@@ -174,7 +182,7 @@ no more interesting than `Reactive`s.
 Arrow Transformers
 ------------------
 
-Using a similar mechanism to monad transformers\cite{combiningMonads},\todo{give some reason for including this section}
+Using a similar mechanism to monad transformers\cite{combiningMonads},
 Hughes introduced arrow transformers\cite{arrows}. These types,
 kinded as $(* \to * \to *) \to (* \to * \to *)$, augment an arrow
 with additional functionality, and admit an operation `lift` which
@@ -185,6 +193,14 @@ package\cite{hackage:arrows}, is given in Figure\ \ref{fig:arrTrans}.
 As an example, one can augment an arrow with the ability to read
 an environment, akin to the `ReaderT` monad transformer, by
 transforming from `a b c` for the arrow `a` to `a (b, r) c`.
+
+The reason these are useful is to allow one to construct simplistic
+arrows while letting users of the arrow augment it with other
+capabilities. For instance, later in this report I will introduce
+my own `Wire` arrow for discrete FRP: to give the continuous time
+abstraction that Elliott promotes\cite{continuousTime} is fundamentally
+just a matter of putting a reader arrow from a time domain as an
+arrow transformer around the wire.
 
 \begin{figure}
 \begin{lstlisting}

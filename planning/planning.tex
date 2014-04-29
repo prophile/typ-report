@@ -26,14 +26,15 @@ infer that the number of failures in any particular day follows a
 Poisson distribution: $\operatorname{Po}(\frac{1}{25000})$.
 
 I would estimate the mean lifetime of an Apple MacBook Pro -- the machine I
-am using -- at 4 years. I state this, unfortunately, without evidence. This
+am using -- at 4 years. Unfortunately, I state this without evidence. This
 figure gives a MTBF of 1,461 days, so by a similar mechanism we infer the
 Poisson distribution $\operatorname{Po}(\frac{1}{1461})$.
 
-The University of Southampton has burnt down two buildings within
-the last 10 years\cite{fireRecord, fireRecord2}. This corresponds
-to a MTBF of 1,825.25 days, giving rise to the third Poisson
-distribution $\operatorname{Po}(\frac{1}{1825.25})$.
+The University of Southampton has had significant fire damage to
+two buildings in the last 10 years, including losing one
+entirely\cite{fireRecord, fireRecord2}. This corresponds to a MTBF
+of 1,825.25 days, giving rise to the third Poisson distribution
+$\operatorname{Po}(\frac{1}{1825.25})$.
 
 From the sum of these we can conclude that the number of catastrophic
 instances of data loss per day follows $\operatorname{Po}(\frac{339291761}
@@ -45,13 +46,13 @@ of the project) is approximately \textbf{8.52\%}.
 
 \subsection{Data Loss (report)}
 
-\textbf{Data Loss of the final report} would be equally frustrating to
-losing the implementation, although luckily for the consideration of its
-risk I am given a moment of respite from the frustration by being able to
-reuse most of the data loss calculations from the consideration of the
-implementation. The impact I would estimate at \textbf{56 days} since this
-is the time put aside to the interim report, draft report and final report
-in the Gantt chart.
+\textbf{Data Loss of the final report} would be equally frustrating
+to losing the implementation. Most of the calculations for risk are
+similar to the previons section, since the mechanisms for data loss
+are the same in both cases, the major change being only the at-risk
+time period. The impact I would estimate at \textbf{56 days} since
+this is the time put aside to the interim report, draft report and
+final report in the Gantt chart.
 
 The number of catastrastrophic failures per day remains the same as before,
 following $\operatorname{Po}(\frac{339291761}{266669025000})$. What changes
@@ -141,5 +142,8 @@ further information.
   \ganttlink{elem2}{elem5}
 \end{ganttchart}
 }
+
+\todo{Summary of panning out}
+
 \end{landscape}
 

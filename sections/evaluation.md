@@ -63,10 +63,11 @@ discrete FRP does not fulfil that abstraction, though the possibility of push
 semantics makes it much more efficient\cite{pushPull}. Elliott tried to resolve
 this difference in the Push-Pull FRP paper.
 
-While glitches can be mitigated against in the classic FRP formulation, as
-demonstrated in the case of `bacon.js`, it (after months of trying) it is not
-possible to give a sensible semantics under which they can be avoided in
-general -- indeed, in the `bacon.js` case the dispatch mechanism comes at the
-cost of significant potential inconsistencies in order to use a reasonable
-amount of memory\cite{ws:bacon:incon}.
+While glitches can be mitigated against in the classic FRP formulation,
+as demonstrated in the case of `bacon.js`, it seems (after months
+of trying) it is not possible to give a sensible semantics under
+which they can be avoided in general. In the `bacon.js` case the
+dispatch mechanism comes at the cost of significant potential
+inconsistencies in order to use a reasonable amount of
+memory\cite{ws:bacon:incon}.
 

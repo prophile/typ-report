@@ -97,10 +97,10 @@ released in 1984\cite{coqRef}. It has been used in a number of interesting
 research cases, including the proof of the four colour
 theorem\cite{fourColourTheorem}.
 
-Idris is a relatively new language, and unlike Coq and Agda is
-designed as a general-purpose programming language with dependent
-types, rather than as a proof-assistant from the start\cite{idris}.\todo{Apparently Agda is also a proglang?}
-It does, however, have proof-assistant capabilities\cite{idrisProof}.
+Idris is a relatively new language, and unlike Coq is designed primarily
+a general-purpose programming language with dependent types, rather
+than as a proof-assistant from the start\cite{idris}.\ It does,
+however, have proof-assistant capabilities\cite{idrisProof}.
 
 Agda is unusual in the domain of proof assistants as the usual style of
 "list of tactics" is eschewed in favour of proofs written in a functional

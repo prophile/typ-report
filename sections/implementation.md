@@ -208,9 +208,11 @@ for Linux\cite{gitTorvalds}, and is now used in a number of large projects and
 by a number of large organisations\cite{ws:git}, including the University of
 Southampton\cite{ws:sotonGit}.
 
-I opted to use it as a matter of personal familiarity over other distributed
-version control systems, although above centralised version control systems due
-to a need to work in locations without access to the Internet.
+I opted to use it as a matter of personal familiarity over other
+distributed version control systems. I would not, however, have
+used a centralised control system: the need for offline access and
+the benefit of multiple copies of the entire history would have
+prevented it.
 
 ### GitHub
 
